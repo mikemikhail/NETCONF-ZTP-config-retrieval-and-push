@@ -1,0 +1,13 @@
+<config>
+  <ssh xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-crypto-ssh-cfg">
+   <server>
+    <v2/>
+    <netconf-vrf-table>
+     <vrf>
+      <vrf-name>default</vrf-name>
+      <enable/>
+     </vrf>
+    </netconf-vrf-table>
+   </server>
+  </ssh>
+</config

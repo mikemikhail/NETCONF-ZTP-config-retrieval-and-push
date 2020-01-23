@@ -1,0 +1,3 @@
+<filter>
+  <mpls-te xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-mpls-te-cfg" />
+</filter>

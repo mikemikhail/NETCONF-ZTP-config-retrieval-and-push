@@ -1,0 +1,19 @@
+<config>
+  <ipv4-acl-and-prefix-list xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-acl-cfg">
+   <prefixes>
+    <prefix>
+     <prefix-list-name>TE</prefix-list-name>
+     <prefix-list-entries>
+      <prefix-list-entry>
+       <sequence-number>10</sequence-number>
+       <grant>permit</grant>
+       <prefix>10.101.0.0</prefix>
+       <netmask>255.255.0.0</netmask>
+       <match-exact-length/>
+       <exact-prefix-length>32</exact-prefix-length>
+      </prefix-list-entry>
+     </prefix-list-entries>
+    </prefix>
+   </prefixes>
+  </ipv4-acl-and-prefix-list>
+</config

@@ -1,0 +1,8 @@
+<config>
+  <clock xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-infra-infra-clock-linux-cfg">
+   <time-zone>
+    <time-zone-name>EST</time-zone-name>
+    <area-name>America/New_York</area-name>
+   </time-zone>
+  </clock>
+</config

@@ -1,0 +1,3 @@
+<filter>
+  <mpls-ldp xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-mpls-ldp-cfg" />
+</filter>

@@ -1,0 +1,35 @@
+<config>
+  <keychains xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-lib-keychain-cfg">
+   <keychain>
+    <chain-name>CISCO</chain-name>
+    <keies>
+     <key>
+      <key-id>0</key-id>
+      <accept-lifetime>
+       <start-hour>0</start-hour>
+       <start-minutes>0</start-minutes>
+       <start-seconds>0</start-seconds>
+       <start-date>1</start-date>
+       <start-month>jan</start-month>
+       <start-year>2013</start-year>
+       <infinite-flag>true</infinite-flag>
+      </accept-lifetime>
+      <key-string>01302F377824</key-string>
+      <send-lifetime>
+       <start-hour>0</start-hour>
+       <start-minutes>0</start-minutes>
+       <start-seconds>0</start-seconds>
+       <start-date>1</start-date>
+       <start-month>jan</start-month>
+       <start-year>2013</start-year>
+       <infinite-flag>true</infinite-flag>
+      </send-lifetime>
+      <cryptographic-algorithm>alg-hmac-md5-16</cryptographic-algorithm>
+     </key>
+    </keies>
+    <accept-tolerance>
+     <value>172800</value>
+    </accept-tolerance>
+   </keychain>
+  </keychains>
+</config

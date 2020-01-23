@@ -1,0 +1,14 @@
+<config>
+  <mpls-lsd xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-mpls-lsd-cfg">
+   <label-databases>
+    <label-database>
+     <label-database-id>0</label-database-id>
+     <label-range>
+      <minvalue>112000</minvalue>
+      <max-value>112999</max-value>
+     </label-range>
+    </label-database>
+   </label-databases>
+   <mpls-ip-ttl-propagate-disable>forward</mpls-ip-ttl-propagate-disable>
+  </mpls-lsd>
+</config

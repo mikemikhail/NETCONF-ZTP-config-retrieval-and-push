@@ -1,0 +1,9 @@
+<config>
+  <netconf-yang xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-man-netconf-cfg">
+   <agent>
+    <ssh>
+     <enable/>
+    </ssh>
+   </agent>
+  </netconf-yang>
+</config

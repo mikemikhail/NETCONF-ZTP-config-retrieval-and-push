@@ -1,0 +1,3 @@
+<filter>
+  <ssh xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-crypto-ssh-cfg" />
+</filter>

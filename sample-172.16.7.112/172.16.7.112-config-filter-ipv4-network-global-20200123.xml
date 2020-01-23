@@ -1,0 +1,3 @@
+<filter>
+  <ipv4-network-global xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-ma-cfg" />
+</filter>

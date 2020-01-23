@@ -1,0 +1,5 @@
+<config>
+  <host-names xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-shellutil-cfg">
+   <host-name>PE112</host-name>
+  </host-names>
+</config

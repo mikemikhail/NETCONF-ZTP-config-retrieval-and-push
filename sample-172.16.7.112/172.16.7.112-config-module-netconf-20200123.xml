@@ -1,0 +1,9 @@
+<config>
+  <netconf xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-man-xml-ttyagent-cfg">
+   <agent>
+    <tty>
+     <enable/>
+    </tty>
+   </agent>
+  </netconf>
+</config

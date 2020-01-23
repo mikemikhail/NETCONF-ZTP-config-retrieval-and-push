@@ -1,0 +1,3 @@
+<filter>
+  <mpls-oam xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-mpls-oam-cfg" />
+</filter>

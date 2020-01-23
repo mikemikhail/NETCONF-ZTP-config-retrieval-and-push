@@ -1,0 +1,87 @@
+<config>
+  <routing-policy xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-policy-repository-cfg">
+   <sets>
+    <prefix-sets>
+     <prefix-set>
+      <set-name>RR</set-name>
+      <rpl-prefix-set>prefix-set RR
+  10.200.201.1,
+  10.200.202.1,
+  10.200.203.1,
+  10.200.204.1
+end-set
+</rpl-prefix-set>
+     </prefix-set>
+     <prefix-set>
+      <set-name>LB-I</set-name>
+      <rpl-prefix-set>prefix-set LB-I
+  10.200.0.0/15 eq 32
+end-set
+</rpl-prefix-set>
+     </prefix-set>
+     <prefix-set>
+      <set-name>LB-O</set-name>
+      <rpl-prefix-set>prefix-set LB-O
+  10.100.0.0/15 eq 32
+end-set
+</rpl-prefix-set>
+     </prefix-set>
+    </prefix-sets>
+   </sets>
+   <route-policies>
+    <route-policy>
+     <route-policy-name>RR</route-policy-name>
+     <rpl-route-policy>route-policy RR
+  if destination in RR then
+    pass
+  endif
+end-policy
+</rpl-route-policy>
+    </route-policy>
+    <route-policy>
+     <route-policy-name>ALL</route-policy-name>
+     <rpl-route-policy>route-policy ALL
+  done
+end-policy
+</rpl-route-policy>
+    </route-policy>
+    <route-policy>
+     <route-policy-name>LB-I</route-policy-name>
+     <rpl-route-policy>route-policy LB-I
+  if destination in LB-I then
+    pass
+  endif
+end-policy
+</rpl-route-policy>
+    </route-policy>
+    <route-policy>
+     <route-policy-name>LB-O</route-policy-name>
+     <rpl-route-policy>route-policy LB-O
+  if destination in LB-O then
+    pass
+  endif
+end-policy
+</rpl-route-policy>
+    </route-policy>
+    <route-policy>
+     <route-policy-name>RR-O</route-policy-name>
+     <rpl-route-policy>route-policy RR-O
+  if destination in LB-O then
+    drop
+  endif
+  pass
+end-policy
+</rpl-route-policy>
+    </route-policy>
+    <route-policy>
+     <route-policy-name>RR_TEST</route-policy-name>
+     <rpl-route-policy>route-policy RR_TEST
+  if tag eq 18 then
+    pass
+  endif
+end-policy
+</rpl-route-policy>
+    </route-policy>
+   </route-policies>
+  </routing-policy>
+</config

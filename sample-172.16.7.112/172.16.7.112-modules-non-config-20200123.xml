@@ -1,0 +1,17 @@
+  <aaa xmlns="http://tail-f.com/ns/aaa/1.1">
+  <confdConfig xmlns="http://tail-f.com/ns/confd_dyncfg/1.0">
+  <SNMP-COMMUNITY-MIB xmlns="http://tail-f.com/ns/mibs/SNMP-COMMUNITY-MIB/200308060000Z">
+  <SNMP-NOTIFICATION-MIB xmlns="http://tail-f.com/ns/mibs/SNMP-NOTIFICATION-MIB/200210140000Z">
+  <SNMP-TARGET-MIB xmlns="http://tail-f.com/ns/mibs/SNMP-TARGET-MIB/200210140000Z">
+  <SNMP-USER-BASED-SM-MIB xmlns="http://tail-f.com/ns/mibs/SNMP-USER-BASED-SM-MIB/200210160000Z">
+  <SNMP-VIEW-BASED-ACM-MIB xmlns="http://tail-f.com/ns/mibs/SNMP-VIEW-BASED-ACM-MIB/200210160000Z">
+  <SNMPv2-MIB xmlns="http://tail-f.com/ns/mibs/SNMPv2-MIB/200210160000Z">
+  <fpd xmlns="http://www.cisco.com/ns/yang/Cisco-IOS-XR-sysadmin-fpd-infra-cli-fpd">
+  <sdr-config xmlns="http://www.cisco.com/ns/yang/Cisco-IOS-XR-sysadmin-sdr-mgr">
+  <private-sdr xmlns="http://www.cisco.com/ns/yang/Cisco-IOS-XR-sysadmin-sdr-mgr">
+  <service xmlns="http://www.cisco.com/ns/yang/Cisco-IOS-XR-sysadmin-services">
+  <network-instances xmlns="http://openconfig.net/yang/network-instance">
+  <telemetry-system xmlns="http://openconfig.net/yang/telemetry">
+  <interfaces xmlns="http://openconfig.net/yang/interfaces">
+  <lacp xmlns="http://openconfig.net/yang/lacp">
+  <routing-policy xmlns="http://openconfig.net/yang/routing-policy">

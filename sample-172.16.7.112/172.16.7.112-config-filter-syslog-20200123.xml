@@ -1,0 +1,3 @@
+<filter>
+  <syslog xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-infra-syslog-cfg" />
+</filter>

@@ -1,0 +1,22 @@
+<config>
+  <groups xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-group-cfg">
+   <group>
+    <group-name>ISIS-P2P</group-name>
+    <isis xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-clns-isis-cfg">
+     <instances>
+      <instance>
+       <instance-name>ISIS</instance-name>
+       <running/>
+       <interfaces>
+        <interface>
+         <interface-name>GigabitEthernet0_0_0_0\..+</interface-name>
+         <running/>
+         <point-to-point/>
+        </interface>
+       </interfaces>
+      </instance>
+     </instances>
+    </isis>
+   </group>
+  </groups>
+</config

@@ -1,0 +1,202 @@
+<config>
+  <interface-configurations xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-ifmgr-cfg">
+   <interface-configuration>
+    <active>pre</active>
+    <interface-name>MgmtEth0/0/CPU0/0</interface-name>
+    <shutdown/>
+   </interface-configuration>
+   <interface-configuration>
+    <active>act</active>
+    <interface-name>Loopback0</interface-name>
+    <interface-virtual/>
+    <ipv4-network xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-io-cfg">
+     <addresses>
+      <primary>
+       <address>10.101.112.1</address>
+       <netmask>255.255.255.255</netmask>
+      </primary>
+     </addresses>
+    </ipv4-network>
+    <ipv6-network xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-ipv6-ma-cfg">
+     <addresses>
+      <regular-addresses>
+       <regular-address>
+        <address>2001:db8:112::1</address>
+        <prefix-length>128</prefix-length>
+        <zone>0</zone>
+       </regular-address>
+      </regular-addresses>
+     </addresses>
+    </ipv6-network>
+   </interface-configuration>
+   <interface-configuration>
+    <active>act</active>
+    <interface-name>Loopback425</interface-name>
+    <interface-virtual/>
+    <vrf xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-infra-rsi-cfg">ARMY</vrf>
+    <ipv4-network xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-io-cfg">
+     <addresses>
+      <primary>
+       <address>10.112.112.1</address>
+       <netmask>255.255.255.255</netmask>
+      </primary>
+     </addresses>
+    </ipv4-network>
+   </interface-configuration>
+   <interface-configuration>
+    <active>act</active>
+    <interface-name>MgmtEth0/RP0/CPU0/0</interface-name>
+    <description>management at 172.16.7.89</description>
+    <ipv4-network xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-io-cfg">
+     <addresses>
+      <primary>
+       <address>172.16.7.112</address>
+       <netmask>255.255.255.0</netmask>
+      </primary>
+     </addresses>
+    </ipv4-network>
+   </interface-configuration>
+   <interface-configuration>
+    <active>act</active>
+    <interface-name>GigabitEthernet0/0/0/0</interface-name>
+    <mtus>
+     <mtu>
+      <owner>GigabitEthernet</owner>
+      <mtu>4470</mtu>
+     </mtu>
+    </mtus>
+   </interface-configuration>
+   <interface-configuration>
+    <active>act</active>
+    <interface-name>GigabitEthernet0/0/0/1</interface-name>
+    <shutdown/>
+   </interface-configuration>
+   <interface-configuration>
+    <active>act</active>
+    <interface-name>GigabitEthernet0/0/0/2</interface-name>
+    <mtus>
+     <mtu>
+      <owner>GigabitEthernet</owner>
+      <mtu>4470</mtu>
+     </mtu>
+    </mtus>
+   </interface-configuration>
+   <interface-configuration>
+    <active>act</active>
+    <interface-name>GigabitEthernet0/0/0/3</interface-name>
+    <shutdown/>
+   </interface-configuration>
+   <interface-configuration>
+    <active>act</active>
+    <interface-name>GigabitEthernet0/0/0/4</interface-name>
+    <shutdown/>
+   </interface-configuration>
+   <interface-configuration>
+    <active>act</active>
+    <interface-name>GigabitEthernet0/0/0/6</interface-name>
+    <shutdown/>
+   </interface-configuration>
+   <interface-configuration>
+    <active>act</active>
+    <interface-name>GigabitEthernet0/0/0/5.100</interface-name>
+    <interface-mode-non-physical>l2-transport</interface-mode-non-physical>
+    <ethernet-service xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-l2-eth-infra-cfg">
+     <encapsulation>
+      <outer-tag-type>match-dot1q</outer-tag-type>
+      <outer-range1-low>100</outer-range1-low>
+     </encapsulation>
+    </ethernet-service>
+   </interface-configuration>
+   <interface-configuration>
+    <active>act</active>
+    <interface-name>GigabitEthernet0/0/0/5.101</interface-name>
+    <interface-mode-non-physical>l2-transport</interface-mode-non-physical>
+    <ethernet-service xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-l2-eth-infra-cfg">
+     <encapsulation>
+      <outer-tag-type>match-dot1q</outer-tag-type>
+      <outer-range1-low>101</outer-range1-low>
+     </encapsulation>
+    </ethernet-service>
+   </interface-configuration>
+   <interface-configuration>
+    <active>act</active>
+    <interface-name>GigabitEthernet0/0/0/0.1112</interface-name>
+    <interface-mode-non-physical>default</interface-mode-non-physical>
+    <bandwidth>10000000</bandwidth>
+    <ipv4-network xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-io-cfg">
+     <addresses>
+      <primary>
+       <address>10.100.12.12</address>
+       <netmask>255.255.255.0</netmask>
+      </primary>
+     </addresses>
+    </ipv4-network>
+    <vlan-sub-configuration xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-l2-eth-infra-cfg">
+     <vlan-identifier>
+      <vlan-type>vlan-type-dot1q</vlan-type>
+      <first-tag>1112</first-tag>
+     </vlan-identifier>
+    </vlan-sub-configuration>
+   </interface-configuration>
+   <interface-configuration>
+    <active>act</active>
+    <interface-name>GigabitEthernet0/0/0/0.1212</interface-name>
+    <interface-mode-non-physical>default</interface-mode-non-physical>
+    <bandwidth>10000000</bandwidth>
+    <ipv4-network xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-io-cfg">
+     <addresses>
+      <primary>
+       <address>10.100.21.12</address>
+       <netmask>255.255.255.0</netmask>
+      </primary>
+     </addresses>
+    </ipv4-network>
+    <vlan-sub-configuration xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-l2-eth-infra-cfg">
+     <vlan-identifier>
+      <vlan-type>vlan-type-dot1q</vlan-type>
+      <first-tag>1212</first-tag>
+     </vlan-identifier>
+    </vlan-sub-configuration>
+   </interface-configuration>
+   <interface-configuration>
+    <active>act</active>
+    <interface-name>GigabitEthernet0/0/0/0.1412</interface-name>
+    <interface-mode-non-physical>default</interface-mode-non-physical>
+    <description>TO CE412 </description>
+    <vrf xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-infra-rsi-cfg">JIE</vrf>
+    <ipv4-network xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-io-cfg">
+     <addresses>
+      <primary>
+       <address>10.112.1.12</address>
+       <netmask>255.255.255.0</netmask>
+      </primary>
+     </addresses>
+    </ipv4-network>
+    <vlan-sub-configuration xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-l2-eth-infra-cfg">
+     <vlan-identifier>
+      <vlan-type>vlan-type-dot1q</vlan-type>
+      <first-tag>1412</first-tag>
+     </vlan-identifier>
+    </vlan-sub-configuration>
+   </interface-configuration>
+   <interface-configuration>
+    <active>act</active>
+    <interface-name>GigabitEthernet0/0/0/2.2801</interface-name>
+    <interface-mode-non-physical>default</interface-mode-non-physical>
+    <ipv4-network xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-io-cfg">
+     <addresses>
+      <primary>
+       <address>10.21.12.1</address>
+       <netmask>255.255.255.0</netmask>
+      </primary>
+     </addresses>
+    </ipv4-network>
+    <vlan-sub-configuration xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-l2-eth-infra-cfg">
+     <vlan-identifier>
+      <vlan-type>vlan-type-dot1q</vlan-type>
+      <first-tag>2801</first-tag>
+     </vlan-identifier>
+    </vlan-sub-configuration>
+   </interface-configuration>
+  </interface-configurations>
+</config

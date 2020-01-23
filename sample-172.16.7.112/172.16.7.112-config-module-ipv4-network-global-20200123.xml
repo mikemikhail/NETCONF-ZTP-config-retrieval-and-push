@@ -1,0 +1,11 @@
+<config>
+  <ipv4-network-global xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-ma-cfg">
+   <unnumbered>
+    <mpls>
+     <te>
+      <interface>Loopback0</interface>
+     </te>
+    </mpls>
+   </unnumbered>
+  </ipv4-network-global>
+</config

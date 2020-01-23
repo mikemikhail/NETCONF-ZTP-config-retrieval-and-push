@@ -1,0 +1,23 @@
+<config>
+  <call-home xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-call-home-cfg">
+   <active/>
+   <contact-smart-licensing>true</contact-smart-licensing>
+   <profiles>
+    <profile>
+     <profile-name>CiscoTAC-1</profile-name>
+     <create/>
+     <active/>
+     <methods>
+      <method>
+       <method>email</method>
+       <enable>false</enable>
+      </method>
+      <method>
+       <method>http</method>
+       <enable>true</enable>
+      </method>
+     </methods>
+    </profile>
+   </profiles>
+  </call-home>
+</config

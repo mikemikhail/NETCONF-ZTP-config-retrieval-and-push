@@ -1,0 +1,19 @@
+<config>
+  <aaa xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-aaa-lib-cfg">
+   <usernames xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-aaa-locald-cfg">
+    <username>
+     <ordering-index>0</ordering-index>
+     <name>cisco</name>
+     <usergroup-under-usernames>
+      <usergroup-under-username>
+       <name>root-lr</name>
+      </usergroup-under-username>
+      <usergroup-under-username>
+       <name>cisco-support</name>
+      </usergroup-under-username>
+     </usergroup-under-usernames>
+     <secret>$1$1HYT$Xq1uJxGtdn7pqH8bETZiS0</secret>
+    </username>
+   </usernames>
+  </aaa>
+</config

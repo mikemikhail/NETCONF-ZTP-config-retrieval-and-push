@@ -1,0 +1,44 @@
+<config>
+  <rsvp xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-ip-rsvp-cfg">
+   <authentication>
+    <key-chain>CISCO</key-chain>
+    <life-time>14400</life-time>
+    <window-size>3</window-size>
+   </authentication>
+   <interfaces>
+    <interface>
+     <name>GigabitEthernet0/0/0/0.1112</name>
+     <enable/>
+     <bandwidth>
+      <rdm>
+       <bc0-bandwidth>9500000</bc0-bandwidth>
+       <rdm-keyword>not-specified</rdm-keyword>
+       <bc0-keyword>not-specified</bc0-keyword>
+      </rdm>
+     </bandwidth>
+     <if-signalling>
+      <hello-graceful-restart-if-based/>
+     </if-signalling>
+    </interface>
+    <interface>
+     <name>GigabitEthernet0/0/0/0.1212</name>
+     <enable/>
+     <bandwidth>
+      <rdm>
+       <bc0-bandwidth>9500000</bc0-bandwidth>
+       <rdm-keyword>not-specified</rdm-keyword>
+       <bc0-keyword>not-specified</bc0-keyword>
+      </rdm>
+     </bandwidth>
+     <if-signalling>
+      <hello-graceful-restart-if-based/>
+     </if-signalling>
+    </interface>
+   </interfaces>
+   <signalling>
+    <graceful-restart>
+     <enable>true</enable>
+    </graceful-restart>
+   </signalling>
+  </rsvp>
+</config

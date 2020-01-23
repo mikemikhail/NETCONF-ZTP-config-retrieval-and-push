@@ -1,0 +1,7 @@
+<config>
+  <syslog xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-infra-syslog-cfg">
+   <buffered-logging>
+    <buffer-size>33554432</buffer-size>
+   </buffered-logging>
+  </syslog>
+</config
