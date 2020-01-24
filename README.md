@@ -9,7 +9,7 @@ to be pointed to by DHCP service, with http/s pointer. When received by new XR i
 
 --------
 
-get_config.py
+get-config.py
 
 Use to read running config. It generates:
 
