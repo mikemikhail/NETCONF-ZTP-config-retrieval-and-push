@@ -27,7 +27,7 @@ Use to read running config. It generates:
 
 --------
 
-edit-config-full.py
+edit-config-modules.py
 
 Uses the above to push model configuration to router, one by one. Generates response:
 
