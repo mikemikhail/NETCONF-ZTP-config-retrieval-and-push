@@ -1,4 +1,4 @@
-# NETCONF-ZTP-config-retieval-and-push
+# NETCONF-ZTP-config-retrieval-and-push
 Scripts for CLI-free ZTP provision, golden config read/push/verify
 
 --------
