@@ -1,4 +1,4 @@
-# NETCONF-ZTP-config-retieval-and-push
+# NETCONF-ZTP-config-retrieval-and-push
 Scripts for CLI-free ZTP provision, golden config read/push/verify
 
 --------
@@ -9,7 +9,7 @@ to be pointed to by DHCP service, with http/s pointer. When received by new XR i
 
 --------
 
-get_config.py
+get-config.py
 
 Use to read running config. It generates:
 
@@ -27,7 +27,7 @@ Use to read running config. It generates:
 
 --------
 
-edit-config-full.py
+edit-config-modules.py
 
 Uses the above to push model configuration to router, one by one. Generates response:
 
