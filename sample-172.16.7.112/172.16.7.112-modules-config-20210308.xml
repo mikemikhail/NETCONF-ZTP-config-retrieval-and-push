@@ -4,10 +4,8 @@
   <clock xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-infra-infra-clock-linux-cfg" />
   <mpls-lsd xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-mpls-lsd-cfg" />
   <cdp xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-cdp-cfg" />
-  <parser xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-parser-cfg" />
   <netconf xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-man-xml-ttyagent-cfg" />
   <router-static xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-ip-static-cfg" />
-  <groups xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-group-cfg" />
   <mpls-te xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-mpls-te-cfg" />
   <isis xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-clns-isis-cfg" />
   <ipv4-acl-and-prefix-list xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-acl-cfg" />

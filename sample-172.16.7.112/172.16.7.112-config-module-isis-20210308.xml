@@ -3,9 +3,6 @@
    <instances>
     <instance>
      <instance-name>ISIS</instance-name>
-     <apply-groups>
-      <apply-group>ISIS-P2P</apply-group>
-     </apply-groups>
      <running/>
      <overload-bits>
       <overload-bit>
@@ -45,7 +42,7 @@
           <protocol-name>bgp</protocol-name>
           <bgp>
            <as-xx>0</as-xx>
-           <as-yy>65001</as-yy>
+           <as-yy>65005</as-yy>
            <route-policy-name>RR</route-policy-name>
           </bgp>
          </redistribution>
@@ -115,6 +112,7 @@
       <interface>
        <interface-name>GigabitEthernet0/0/0/0.1212</interface-name>
        <running/>
+       <point-to-point/>
        <hello-paddings>
         <hello-padding>
          <level>not-set</level>

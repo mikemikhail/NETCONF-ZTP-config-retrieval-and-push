@@ -41,7 +41,7 @@ end-policy
     <route-policy>
      <route-policy-name>ALL</route-policy-name>
      <rpl-route-policy>route-policy ALL
-  done
+  pass
 end-policy
 </rpl-route-policy>
     </route-policy>

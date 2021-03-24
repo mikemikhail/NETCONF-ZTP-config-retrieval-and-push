@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><data xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0">
   <host-names xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-shellutil-cfg">
-   <host-name>PE112</host-name>
+   <host-name>PE512</host-name>
   </host-names>
   <mpls-oam xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-mpls-oam-cfg">
    <enable-oam/>
@@ -37,20 +37,6 @@
   <cdp xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-cdp-cfg">
    <enable>true</enable>
   </cdp>
-  <parser xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-parser-cfg">
-   <alias>
-    <alls>
-     <all>
-      <identifier>up</identifier>
-      <identifier-xr>show ipv4 interface brief | include Up</identifier-xr>
-     </all>
-     <all>
-      <identifier>tun</identifier>
-      <identifier-xr>show mpls traffic-eng tunnels tabular</identifier-xr>
-     </all>
-    </alls>
-   </alias>
-  </parser>
   <netconf xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-man-xml-ttyagent-cfg">
    <agent>
     <tty>
@@ -1304,28 +1290,52 @@
       </vrfipv4>
      </address-family>
     </vrf>
+    <vrf>
+     <vrf-name>MPG</vrf-name>
+     <address-family>
+      <vrfipv4>
+       <vrf-unicast>
+        <vrf-prefixes>
+         <vrf-prefix>
+          <prefix>172.31.1.0</prefix>
+          <prefix-length>24</prefix-length>
+          <vrf-route>
+           <vrf-next-hop-table>
+            <vrf-next-hop-interface-name>
+             <interface-name>Null0</interface-name>
+            </vrf-next-hop-interface-name>
+           </vrf-next-hop-table>
+          </vrf-route>
+         </vrf-prefix>
+         <vrf-prefix>
+          <prefix>172.31.2.0</prefix>
+          <prefix-length>24</prefix-length>
+          <vrf-route>
+           <vrf-next-hop-table>
+            <vrf-next-hop-interface-name>
+             <interface-name>Null0</interface-name>
+            </vrf-next-hop-interface-name>
+           </vrf-next-hop-table>
+          </vrf-route>
+         </vrf-prefix>
+         <vrf-prefix>
+          <prefix>172.31.3.0</prefix>
+          <prefix-length>24</prefix-length>
+          <vrf-route>
+           <vrf-next-hop-table>
+            <vrf-next-hop-interface-name>
+             <interface-name>Null0</interface-name>
+            </vrf-next-hop-interface-name>
+           </vrf-next-hop-table>
+          </vrf-route>
+         </vrf-prefix>
+        </vrf-prefixes>
+       </vrf-unicast>
+      </vrfipv4>
+     </address-family>
+    </vrf>
    </vrfs>
   </router-static>
-  <groups xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-group-cfg">
-   <group>
-    <group-name>ISIS-P2P</group-name>
-    <isis xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-clns-isis-cfg">
-     <instances>
-      <instance>
-       <instance-name>ISIS</instance-name>
-       <running/>
-       <interfaces>
-        <interface>
-         <interface-name>GigabitEthernet0_0_0_0\..+</interface-name>
-         <running/>
-         <point-to-point/>
-        </interface>
-       </interfaces>
-      </instance>
-     </instances>
-    </isis>
-   </group>
-  </groups>
   <mpls-te xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-mpls-te-cfg">
    <enable-traffic-engineering/>
    <interfaces>
@@ -1454,9 +1464,6 @@
    <instances>
     <instance>
      <instance-name>ISIS</instance-name>
-     <apply-groups>
-      <apply-group>ISIS-P2P</apply-group>
-     </apply-groups>
      <running/>
      <overload-bits>
       <overload-bit>
@@ -1496,7 +1503,7 @@
           <protocol-name>bgp</protocol-name>
           <bgp>
            <as-xx>0</as-xx>
-           <as-yy>65001</as-yy>
+           <as-yy>65005</as-yy>
            <route-policy-name>RR</route-policy-name>
           </bgp>
          </redistribution>
@@ -1566,6 +1573,7 @@
       <interface>
        <interface-name>GigabitEthernet0/0/0/0.1212</interface-name>
        <running/>
+       <point-to-point/>
        <hello-paddings>
         <hello-padding>
          <level>not-set</level>
@@ -1859,7 +1867,7 @@
     <instance-as>
      <as>0</as>
      <four-byte-as>
-      <as>65001</as>
+      <as>65005</as>
       <bgp-running/>
       <default-vrf>
        <global>
@@ -1897,7 +1905,7 @@
           <af-name>lsls</af-name>
           <enable/>
           <domain-distinguisher>
-           <as>65001</as>
+           <as>65005</as>
            <router-id>10.101.112.1</router-id>
           </domain-distinguisher>
          </global-af>
@@ -1910,7 +1918,7 @@
           <create/>
           <remote-as>
            <as-xx>0</as-xx>
-           <as-yy>65001</as-yy>
+           <as-yy>65005</as-yy>
           </remote-as>
           <keychain>
            <keychain-disable>false</keychain-disable>
@@ -1938,6 +1946,33 @@
            </neighbor-group-af>
           </neighbor-group-afs>
          </neighbor-group>
+         <neighbor-group>
+          <neighbor-group-name>MEDCOI-MTF</neighbor-group-name>
+          <create/>
+          <remote-as>
+           <as-xx>0</as-xx>
+           <as-yy>65301</as-yy>
+          </remote-as>
+          <local-as>
+           <as-xx>0</as-xx>
+           <as-yy>65000</as-yy>
+           <no-prepend/>
+           <replace-as/>
+          </local-as>
+          <password>
+           <password-disable>false</password-disable>
+           <password>14141B180F0B</password>
+          </password>
+          <neighbor-group-afs>
+           <neighbor-group-af>
+            <af-name>ipv4-unicast</af-name>
+            <activate/>
+            <send-community-ebgp>true</send-community-ebgp>
+            <route-policy-in>ALL</route-policy-in>
+            <route-policy-out>ALL</route-policy-out>
+           </neighbor-group-af>
+          </neighbor-group-afs>
+         </neighbor-group>
         </neighbor-groups>
         <neighbors>
          <neighbor>
@@ -1954,7 +1989,7 @@
            <max-hop-count>255</max-hop-count>
            <mpls-deactivation>false</mpls-deactivation>
           </ebgp-multihop>
-          <description>ASBR 65002 </description>
+          <description>ASBR 65002</description>
           <neighbor-afs>
            <neighbor-af>
             <af-name>ipv4-labeled-unicast</af-name>
@@ -1983,7 +2018,7 @@
          <route-distinguisher>
           <type>as</type>
           <as-xx>0</as-xx>
-          <as>65001</as>
+          <as>65005</as>
           <as-index>65400</as-index>
          </route-distinguisher>
          <vrf-global-afs>
@@ -2013,6 +2048,281 @@
             <as-override>true</as-override>
            </vrf-neighbor-af>
           </vrf-neighbor-afs>
+         </vrf-neighbor>
+        </vrf-neighbors>
+       </vrf>
+       <vrf>
+        <vrf-name>MPG</vrf-name>
+        <vrf-global>
+         <exists/>
+         <route-distinguisher>
+          <type>auto</type>
+         </route-distinguisher>
+         <vrf-global-afs>
+          <vrf-global-af>
+           <af-name>ipv4-unicast</af-name>
+           <enable/>
+           <sourced-networks>
+            <sourced-network>
+             <network-addr>172.31.1.0</network-addr>
+             <network-prefix>24</network-prefix>
+            </sourced-network>
+            <sourced-network>
+             <network-addr>172.31.2.0</network-addr>
+             <network-prefix>24</network-prefix>
+            </sourced-network>
+            <sourced-network>
+             <network-addr>172.31.3.0</network-addr>
+             <network-prefix>24</network-prefix>
+            </sourced-network>
+           </sourced-networks>
+          </vrf-global-af>
+         </vrf-global-afs>
+        </vrf-global>
+        <vrf-neighbors>
+         <vrf-neighbor>
+          <neighbor-address>172.17.0.9</neighbor-address>
+          <remote-as>
+           <as-xx>0</as-xx>
+           <as-yy>65301</as-yy>
+          </remote-as>
+          <local-as>
+           <as-xx>0</as-xx>
+           <as-yy>65002</as-yy>
+           <no-prepend/>
+           <replace-as/>
+          </local-as>
+          <password>
+           <password-disable>false</password-disable>
+           <password>060506324F41</password>
+          </password>
+          <description>DHA GW1-Rtr</description>
+          <vrf-neighbor-afs>
+           <vrf-neighbor-af>
+            <af-name>ipv4-unicast</af-name>
+            <activate/>
+            <route-policy-in>ALL</route-policy-in>
+            <route-policy-out>ALL</route-policy-out>
+           </vrf-neighbor-af>
+          </vrf-neighbor-afs>
+         </vrf-neighbor>
+        </vrf-neighbors>
+       </vrf>
+       <vrf>
+        <vrf-name>NIPR</vrf-name>
+        <vrf-global>
+         <exists/>
+         <route-distinguisher>
+          <type>auto</type>
+         </route-distinguisher>
+         <vrf-global-afs>
+          <vrf-global-af>
+           <af-name>ipv4-unicast</af-name>
+           <enable/>
+           <connected-routes/>
+          </vrf-global-af>
+         </vrf-global-afs>
+        </vrf-global>
+        <vrf-neighbors>
+         <vrf-neighbor>
+          <neighbor-address>172.17.0.5</neighbor-address>
+          <remote-as>
+           <as-xx>0</as-xx>
+           <as-yy>65301</as-yy>
+          </remote-as>
+          <local-as>
+           <as-xx>0</as-xx>
+           <as-yy>65001</as-yy>
+           <no-prepend/>
+           <replace-as/>
+          </local-as>
+          <password>
+           <password-disable>false</password-disable>
+           <password>030752180500</password>
+          </password>
+          <vrf-neighbor-afs>
+           <vrf-neighbor-af>
+            <af-name>ipv4-unicast</af-name>
+            <activate/>
+            <route-policy-in>ALL</route-policy-in>
+            <route-policy-out>ALL</route-policy-out>
+            <default-originate>
+             <enable>true</enable>
+            </default-originate>
+           </vrf-neighbor-af>
+          </vrf-neighbor-afs>
+         </vrf-neighbor>
+         <vrf-neighbor>
+          <neighbor-address>172.17.12.2</neighbor-address>
+          <remote-as>
+           <as-xx>0</as-xx>
+           <as-yy>5972</as-yy>
+          </remote-as>
+          <update-source-interface>GigabitEthernet0/0/0/3.1201</update-source-interface>
+          <vrf-neighbor-afs>
+           <vrf-neighbor-af>
+            <af-name>ipv4-unicast</af-name>
+            <activate/>
+            <route-policy-in>ALL</route-policy-in>
+            <route-policy-out>ALL</route-policy-out>
+           </vrf-neighbor-af>
+          </vrf-neighbor-afs>
+         </vrf-neighbor>
+         <vrf-neighbor>
+          <neighbor-address>172.17.12.6</neighbor-address>
+          <remote-as>
+           <as-xx>0</as-xx>
+           <as-yy>5972</as-yy>
+          </remote-as>
+          <update-source-interface>GigabitEthernet0/0/0/3.1205</update-source-interface>
+          <vrf-neighbor-afs>
+           <vrf-neighbor-af>
+            <af-name>ipv4-unicast</af-name>
+            <activate/>
+            <route-policy-in>ALL</route-policy-in>
+            <route-policy-out>ALL</route-policy-out>
+           </vrf-neighbor-af>
+          </vrf-neighbor-afs>
+         </vrf-neighbor>
+        </vrf-neighbors>
+       </vrf>
+       <vrf>
+        <vrf-name>MED-COI</vrf-name>
+        <vrf-global>
+         <exists/>
+         <route-distinguisher>
+          <type>auto</type>
+         </route-distinguisher>
+         <vrf-global-afs>
+          <vrf-global-af>
+           <af-name>ipv4-unicast</af-name>
+           <enable/>
+          </vrf-global-af>
+         </vrf-global-afs>
+        </vrf-global>
+        <vrf-neighbors>
+         <vrf-neighbor>
+          <neighbor-address>172.16.0.21</neighbor-address>
+          <remote-as>
+           <as-xx>0</as-xx>
+           <as-yy>65301</as-yy>
+          </remote-as>
+          <local-as>
+           <as-xx>0</as-xx>
+           <as-yy>65000</as-yy>
+           <no-prepend/>
+           <replace-as/>
+          </local-as>
+          <password>
+           <password-disable>false</password-disable>
+           <password>094F471A1A0A</password>
+          </password>
+          <description>DHA GW1-Rtr</description>
+          <vrf-neighbor-afs>
+           <vrf-neighbor-af>
+            <af-name>ipv4-unicast</af-name>
+            <activate/>
+            <send-community-ebgp>true</send-community-ebgp>
+            <route-policy-in>ALL</route-policy-in>
+            <route-policy-out>ALL</route-policy-out>
+           </vrf-neighbor-af>
+          </vrf-neighbor-afs>
+         </vrf-neighbor>
+         <vrf-neighbor>
+          <neighbor-address>172.17.0.21</neighbor-address>
+          <remote-as>
+           <as-xx>0</as-xx>
+           <as-yy>65301</as-yy>
+          </remote-as>
+          <local-as>
+           <as-xx>0</as-xx>
+           <as-yy>65000</as-yy>
+           <no-prepend/>
+           <replace-as/>
+          </local-as>
+          <password>
+           <password-disable>false</password-disable>
+           <password>0822455D0A16</password>
+          </password>
+          <description>DHA GW2-Rtr</description>
+          <vrf-neighbor-afs>
+           <vrf-neighbor-af>
+            <af-name>ipv4-unicast</af-name>
+            <activate/>
+            <send-community-ebgp>true</send-community-ebgp>
+            <route-policy-in>ALL</route-policy-in>
+            <route-policy-out>ALL</route-policy-out>
+           </vrf-neighbor-af>
+          </vrf-neighbor-afs>
+         </vrf-neighbor>
+         <vrf-neighbor>
+          <neighbor-address>172.18.0.13</neighbor-address>
+          <remote-as>
+           <as-xx>0</as-xx>
+           <as-yy>65301</as-yy>
+          </remote-as>
+          <local-as>
+           <as-xx>0</as-xx>
+           <as-yy>65000</as-yy>
+           <no-prepend/>
+           <replace-as/>
+          </local-as>
+          <password>
+           <password-disable>false</password-disable>
+           <password>14141B180F0B</password>
+          </password>
+          <vrf-neighbor-afs>
+           <vrf-neighbor-af>
+            <af-name>ipv4-unicast</af-name>
+            <activate/>
+            <send-community-ebgp>true</send-community-ebgp>
+            <route-policy-in>ALL</route-policy-in>
+            <route-policy-out>ALL</route-policy-out>
+           </vrf-neighbor-af>
+          </vrf-neighbor-afs>
+         </vrf-neighbor>
+         <vrf-neighbor>
+          <neighbor-address>172.19.0.13</neighbor-address>
+          <remote-as>
+           <as-xx>0</as-xx>
+           <as-yy>65301</as-yy>
+          </remote-as>
+          <local-as>
+           <as-xx>0</as-xx>
+           <as-yy>65000</as-yy>
+           <no-prepend/>
+           <replace-as/>
+          </local-as>
+          <password>
+           <password-disable>false</password-disable>
+           <password>121A0C041104</password>
+          </password>
+          <description>DHA MTF1Clinic1-Rtr</description>
+          <vrf-neighbor-afs>
+           <vrf-neighbor-af>
+            <af-name>ipv4-unicast</af-name>
+            <activate/>
+            <send-community-ebgp>true</send-community-ebgp>
+            <route-policy-in>ALL</route-policy-in>
+            <route-policy-out>ALL</route-policy-out>
+           </vrf-neighbor-af>
+          </vrf-neighbor-afs>
+         </vrf-neighbor>
+         <vrf-neighbor>
+          <neighbor-address>172.21.0.13</neighbor-address>
+          <neighbor-group-add-member>MEDCOI-MTF</neighbor-group-add-member>
+         </vrf-neighbor>
+         <vrf-neighbor>
+          <neighbor-address>172.24.0.13</neighbor-address>
+          <neighbor-group-add-member>MEDCOI-MTF</neighbor-group-add-member>
+         </vrf-neighbor>
+         <vrf-neighbor>
+          <neighbor-address>172.27.0.13</neighbor-address>
+          <neighbor-group-add-member>MEDCOI-MTF</neighbor-group-add-member>
+         </vrf-neighbor>
+         <vrf-neighbor>
+          <neighbor-address>172.30.0.13</neighbor-address>
+          <neighbor-group-add-member>MEDCOI-MTF</neighbor-group-add-member>
          </vrf-neighbor>
         </vrf-neighbors>
        </vrf>
@@ -2141,6 +2451,20 @@
    </interface-configuration>
    <interface-configuration>
     <active>act</active>
+    <interface-name>Loopback27064</interface-name>
+    <interface-virtual/>
+    <vrf xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-infra-rsi-cfg">NIPR</vrf>
+    <ipv4-network xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-io-cfg">
+     <addresses>
+      <primary>
+       <address>172.16.12.1</address>
+       <netmask>255.255.255.255</netmask>
+      </primary>
+     </addresses>
+    </ipv4-network>
+   </interface-configuration>
+   <interface-configuration>
+    <active>act</active>
     <interface-name>MgmtEth0/RP0/CPU0/0</interface-name>
     <description>management at 172.16.7.89</description>
     <ipv4-network xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-io-cfg">
@@ -2165,32 +2489,91 @@
    <interface-configuration>
     <active>act</active>
     <interface-name>GigabitEthernet0/0/0/1</interface-name>
-    <shutdown/>
+    <description>GW2-Rtr GigabitEthernet2 VRF ext 172.17.0.9 VIA DHA3250</description>
+    <vrf xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-infra-rsi-cfg">MPG</vrf>
+    <ipv4-network xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-io-cfg">
+     <addresses>
+      <primary>
+       <address>172.17.0.10</address>
+       <netmask>255.255.255.252</netmask>
+      </primary>
+     </addresses>
+    </ipv4-network>
    </interface-configuration>
    <interface-configuration>
     <active>act</active>
     <interface-name>GigabitEthernet0/0/0/2</interface-name>
+    <description>MTF1-Rtr GLOBAL 172.18.0.13 VIA DHA 3121</description>
     <mtus>
      <mtu>
       <owner>GigabitEthernet</owner>
       <mtu>4470</mtu>
      </mtu>
     </mtus>
+    <vrf xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-infra-rsi-cfg">MED-COI</vrf>
+    <ipv4-network xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-io-cfg">
+     <addresses>
+      <primary>
+       <address>172.18.0.14</address>
+       <netmask>255.255.255.252</netmask>
+      </primary>
+     </addresses>
+    </ipv4-network>
    </interface-configuration>
    <interface-configuration>
     <active>act</active>
     <interface-name>GigabitEthernet0/0/0/3</interface-name>
-    <shutdown/>
+    <vrf xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-infra-rsi-cfg">NIPR</vrf>
+    <ipv4-network xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-io-cfg">
+     <addresses>
+      <primary>
+       <address>172.17.0.6</address>
+       <netmask>255.255.255.252</netmask>
+      </primary>
+     </addresses>
+    </ipv4-network>
    </interface-configuration>
    <interface-configuration>
     <active>act</active>
     <interface-name>GigabitEthernet0/0/0/4</interface-name>
-    <shutdown/>
+    <description>DHA-GW2-Rtr GLOBAL 172.17.0.21 via DHA3121</description>
+    <vrf xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-infra-rsi-cfg">MED-COI</vrf>
+    <ipv4-network xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-io-cfg">
+     <addresses>
+      <primary>
+       <address>172.17.0.22</address>
+       <netmask>255.255.255.252</netmask>
+      </primary>
+     </addresses>
+    </ipv4-network>
+   </interface-configuration>
+   <interface-configuration>
+    <active>act</active>
+    <interface-name>GigabitEthernet0/0/0/5</interface-name>
+    <description>MTFClinic1-Rtr GigabitEthernet2 GLOBAL 172.19.0.21 VIA DHA3129</description>
+    <vrf xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-infra-rsi-cfg">MED-COI</vrf>
+    <ipv4-network xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-io-cfg">
+     <addresses>
+      <primary>
+       <address>172.19.0.14</address>
+       <netmask>255.255.255.252</netmask>
+      </primary>
+     </addresses>
+    </ipv4-network>
    </interface-configuration>
    <interface-configuration>
     <active>act</active>
     <interface-name>GigabitEthernet0/0/0/6</interface-name>
-    <shutdown/>
+    <description>GW1-RTR GLOBAL 172.16.0.21 VIA DHA 3121</description>
+    <vrf xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-infra-rsi-cfg">MED-COI</vrf>
+    <ipv4-network xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-io-cfg">
+     <addresses>
+      <primary>
+       <address>172.16.0.22</address>
+       <netmask>255.255.255.252</netmask>
+      </primary>
+     </addresses>
+    </ipv4-network>
    </interface-configuration>
    <interface-configuration>
     <active>act</active>
@@ -2258,7 +2641,7 @@
     <active>act</active>
     <interface-name>GigabitEthernet0/0/0/0.1412</interface-name>
     <interface-mode-non-physical>default</interface-mode-non-physical>
-    <description>TO CE412 </description>
+    <description>TO CE412</description>
     <vrf xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-infra-rsi-cfg">JIE</vrf>
     <ipv4-network xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-io-cfg">
      <addresses>
@@ -2272,6 +2655,114 @@
      <vlan-identifier>
       <vlan-type>vlan-type-dot1q</vlan-type>
       <first-tag>1412</first-tag>
+     </vlan-identifier>
+    </vlan-sub-configuration>
+   </interface-configuration>
+   <interface-configuration>
+    <active>act</active>
+    <interface-name>GigabitEthernet0/0/0/2.1020</interface-name>
+    <interface-mode-non-physical>default</interface-mode-non-physical>
+    <description>MTF2-Rtr GLOBAL 172.21.0.13 VIA DHA 3121</description>
+    <mtus>
+     <mtu>
+      <owner>sub_vlan</owner>
+      <mtu>4470</mtu>
+     </mtu>
+    </mtus>
+    <vrf xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-infra-rsi-cfg">MED-COI</vrf>
+    <ipv4-network xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-io-cfg">
+     <addresses>
+      <primary>
+       <address>172.21.0.14</address>
+       <netmask>255.255.255.252</netmask>
+      </primary>
+     </addresses>
+    </ipv4-network>
+    <vlan-sub-configuration xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-l2-eth-infra-cfg">
+     <vlan-identifier>
+      <vlan-type>vlan-type-dot1q</vlan-type>
+      <first-tag>1020</first-tag>
+     </vlan-identifier>
+    </vlan-sub-configuration>
+   </interface-configuration>
+   <interface-configuration>
+    <active>act</active>
+    <interface-name>GigabitEthernet0/0/0/2.1030</interface-name>
+    <interface-mode-non-physical>default</interface-mode-non-physical>
+    <description>MTF3-Rtr GLOBAL 172.24.0.13 VIA DHA 3121</description>
+    <mtus>
+     <mtu>
+      <owner>sub_vlan</owner>
+      <mtu>4470</mtu>
+     </mtu>
+    </mtus>
+    <vrf xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-infra-rsi-cfg">MED-COI</vrf>
+    <ipv4-network xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-io-cfg">
+     <addresses>
+      <primary>
+       <address>172.24.0.14</address>
+       <netmask>255.255.255.252</netmask>
+      </primary>
+     </addresses>
+    </ipv4-network>
+    <vlan-sub-configuration xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-l2-eth-infra-cfg">
+     <vlan-identifier>
+      <vlan-type>vlan-type-dot1q</vlan-type>
+      <first-tag>1030</first-tag>
+     </vlan-identifier>
+    </vlan-sub-configuration>
+   </interface-configuration>
+   <interface-configuration>
+    <active>act</active>
+    <interface-name>GigabitEthernet0/0/0/2.1040</interface-name>
+    <interface-mode-non-physical>default</interface-mode-non-physical>
+    <description>MTF4-Rtr GLOBAL 172.27.0.13 VIA DHA 3121</description>
+    <mtus>
+     <mtu>
+      <owner>sub_vlan</owner>
+      <mtu>4470</mtu>
+     </mtu>
+    </mtus>
+    <vrf xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-infra-rsi-cfg">MED-COI</vrf>
+    <ipv4-network xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-io-cfg">
+     <addresses>
+      <primary>
+       <address>172.27.0.14</address>
+       <netmask>255.255.255.252</netmask>
+      </primary>
+     </addresses>
+    </ipv4-network>
+    <vlan-sub-configuration xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-l2-eth-infra-cfg">
+     <vlan-identifier>
+      <vlan-type>vlan-type-dot1q</vlan-type>
+      <first-tag>1040</first-tag>
+     </vlan-identifier>
+    </vlan-sub-configuration>
+   </interface-configuration>
+   <interface-configuration>
+    <active>act</active>
+    <interface-name>GigabitEthernet0/0/0/2.1050</interface-name>
+    <interface-mode-non-physical>default</interface-mode-non-physical>
+    <description>MTF5-Rtr GLOBAL 172.30.0.13 VIA DHA 3121</description>
+    <mtus>
+     <mtu>
+      <owner>sub_vlan</owner>
+      <mtu>4470</mtu>
+     </mtu>
+    </mtus>
+    <vrf xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-infra-rsi-cfg">MED-COI</vrf>
+    <ipv4-network xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-io-cfg">
+     <addresses>
+      <primary>
+       <address>172.30.0.14</address>
+       <netmask>255.255.255.252</netmask>
+      </primary>
+     </addresses>
+    </ipv4-network>
+    <vlan-sub-configuration xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-l2-eth-infra-cfg">
+     <vlan-identifier>
+      <vlan-type>vlan-type-dot1q</vlan-type>
+      <first-tag>1050</first-tag>
      </vlan-identifier>
     </vlan-sub-configuration>
    </interface-configuration>
@@ -2291,6 +2782,46 @@
      <vlan-identifier>
       <vlan-type>vlan-type-dot1q</vlan-type>
       <first-tag>2801</first-tag>
+     </vlan-identifier>
+    </vlan-sub-configuration>
+   </interface-configuration>
+   <interface-configuration>
+    <active>act</active>
+    <interface-name>GigabitEthernet0/0/0/3.1201</interface-name>
+    <interface-mode-non-physical>default</interface-mode-non-physical>
+    <vrf xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-infra-rsi-cfg">NIPR</vrf>
+    <ipv4-network xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-io-cfg">
+     <addresses>
+      <primary>
+       <address>172.17.12.1</address>
+       <netmask>255.255.255.252</netmask>
+      </primary>
+     </addresses>
+    </ipv4-network>
+    <vlan-sub-configuration xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-l2-eth-infra-cfg">
+     <vlan-identifier>
+      <vlan-type>vlan-type-dot1q</vlan-type>
+      <first-tag>1201</first-tag>
+     </vlan-identifier>
+    </vlan-sub-configuration>
+   </interface-configuration>
+   <interface-configuration>
+    <active>act</active>
+    <interface-name>GigabitEthernet0/0/0/3.1205</interface-name>
+    <interface-mode-non-physical>default</interface-mode-non-physical>
+    <vrf xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-infra-rsi-cfg">NIPR</vrf>
+    <ipv4-network xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-io-cfg">
+     <addresses>
+      <primary>
+       <address>172.17.12.5</address>
+       <netmask>255.255.255.252</netmask>
+      </primary>
+     </addresses>
+    </ipv4-network>
+    <vlan-sub-configuration xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-l2-eth-infra-cfg">
+     <vlan-identifier>
+      <vlan-type>vlan-type-dot1q</vlan-type>
+      <first-tag>1205</first-tag>
      </vlan-identifier>
     </vlan-sub-configuration>
    </interface-configuration>
@@ -2337,7 +2868,7 @@ end-policy
     <route-policy>
      <route-policy-name>ALL</route-policy-name>
      <rpl-route-policy>route-policy ALL
-  done
+  pass
 end-policy
 </rpl-route-policy>
     </route-policy>
@@ -2401,6 +2932,12 @@ end-policy
            <as-index>65400</as-index>
            <stitching-rt>0</stitching-rt>
           </as-or-four-byte-as>
+          <as-or-four-byte-as>
+           <as-xx>0</as-xx>
+           <as>65005</as>
+           <as-index>65400</as-index>
+           <stitching-rt>0</stitching-rt>
+          </as-or-four-byte-as>
          </route-target>
         </route-targets>
        </import-route-targets>
@@ -2410,8 +2947,61 @@ end-policy
           <type>as</type>
           <as-or-four-byte-as>
            <as-xx>0</as-xx>
-           <as>65001</as>
+           <as>65005</as>
            <as-index>65400</as-index>
+           <stitching-rt>0</stitching-rt>
+          </as-or-four-byte-as>
+         </route-target>
+        </route-targets>
+       </export-route-targets>
+      </bgp>
+     </af>
+    </afs>
+   </vrf>
+   <vrf>
+    <vrf-name>MPG</vrf-name>
+    <create/>
+    <description>DHA MPG</description>
+    <afs>
+     <af>
+      <af-name>ipv4</af-name>
+      <saf-name>unicast</saf-name>
+      <topology-name>default</topology-name>
+      <create/>
+      <bgp xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-bgp-cfg">
+       <import-route-targets>
+        <route-targets>
+         <route-target>
+          <type>as</type>
+          <as-or-four-byte-as>
+           <as-xx>0</as-xx>
+           <as>65002</as>
+           <as-index>65002</as-index>
+           <stitching-rt>0</stitching-rt>
+          </as-or-four-byte-as>
+         </route-target>
+        </route-targets>
+       </import-route-targets>
+       <export-route-targets>
+        <route-targets>
+         <route-target>
+          <type>as</type>
+          <as-or-four-byte-as>
+           <as-xx>0</as-xx>
+           <as>512</as>
+           <as-index>65002</as-index>
+           <stitching-rt>0</stitching-rt>
+          </as-or-four-byte-as>
+          <as-or-four-byte-as>
+           <as-xx>0</as-xx>
+           <as>65002</as>
+           <as-index>65002</as-index>
+           <stitching-rt>0</stitching-rt>
+          </as-or-four-byte-as>
+          <as-or-four-byte-as>
+           <as-xx>0</as-xx>
+           <as>65005</as>
+           <as-index>65002</as-index>
            <stitching-rt>0</stitching-rt>
           </as-or-four-byte-as>
          </route-target>
@@ -2441,6 +3031,12 @@ end-policy
            <as-index>65400</as-index>
            <stitching-rt>0</stitching-rt>
           </as-or-four-byte-as>
+          <as-or-four-byte-as>
+           <as-xx>0</as-xx>
+           <as>65005</as>
+           <as-index>65400</as-index>
+           <stitching-rt>0</stitching-rt>
+          </as-or-four-byte-as>
          </route-target>
          <route-target>
           <type>four-byte-as</type>
@@ -2459,7 +3055,7 @@ end-policy
           <type>as</type>
           <as-or-four-byte-as>
            <as-xx>0</as-xx>
-           <as>65001</as>
+           <as>65005</as>
            <as-index>65400</as-index>
            <stitching-rt>0</stitching-rt>
           </as-or-four-byte-as>
@@ -2470,6 +3066,111 @@ end-policy
            <as-xx>0</as-xx>
            <as>65555</as>
            <as-index>0</as-index>
+           <stitching-rt>0</stitching-rt>
+          </as-or-four-byte-as>
+         </route-target>
+        </route-targets>
+       </export-route-targets>
+      </bgp>
+     </af>
+    </afs>
+   </vrf>
+   <vrf>
+    <vrf-name>NIPR</vrf-name>
+    <create/>
+    <afs>
+     <af>
+      <af-name>ipv4</af-name>
+      <saf-name>unicast</saf-name>
+      <topology-name>default</topology-name>
+      <create/>
+      <bgp xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-bgp-cfg">
+       <import-route-targets>
+        <route-targets>
+         <route-target>
+          <type>as</type>
+          <as-or-four-byte-as>
+           <as-xx>0</as-xx>
+           <as>27064</as>
+           <as-index>27064</as-index>
+           <stitching-rt>0</stitching-rt>
+          </as-or-four-byte-as>
+         </route-target>
+        </route-targets>
+       </import-route-targets>
+       <export-route-targets>
+        <route-targets>
+         <route-target>
+          <type>as</type>
+          <as-or-four-byte-as>
+           <as-xx>0</as-xx>
+           <as>27064</as>
+           <as-index>27064</as-index>
+           <stitching-rt>0</stitching-rt>
+          </as-or-four-byte-as>
+          <as-or-four-byte-as>
+           <as-xx>0</as-xx>
+           <as>65005</as>
+           <as-index>512</as-index>
+           <stitching-rt>0</stitching-rt>
+          </as-or-four-byte-as>
+          <as-or-four-byte-as>
+           <as-xx>0</as-xx>
+           <as>65005</as>
+           <as-index>27064</as-index>
+           <stitching-rt>0</stitching-rt>
+          </as-or-four-byte-as>
+         </route-target>
+        </route-targets>
+       </export-route-targets>
+      </bgp>
+     </af>
+    </afs>
+   </vrf>
+   <vrf>
+    <vrf-name>MED-COI</vrf-name>
+    <create/>
+    <description>DHA MED_COI</description>
+    <afs>
+     <af>
+      <af-name>ipv4</af-name>
+      <saf-name>unicast</saf-name>
+      <topology-name>default</topology-name>
+      <create/>
+      <bgp xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-bgp-cfg">
+       <import-route-targets>
+        <route-targets>
+         <route-target>
+          <type>as</type>
+          <as-or-four-byte-as>
+           <as-xx>0</as-xx>
+           <as>65000</as>
+           <as-index>65000</as-index>
+           <stitching-rt>0</stitching-rt>
+          </as-or-four-byte-as>
+         </route-target>
+        </route-targets>
+       </import-route-targets>
+       <export-route-targets>
+        <route-targets>
+         <route-target>
+          <type>as</type>
+          <as-or-four-byte-as>
+           <as-xx>0</as-xx>
+           <as>512</as>
+           <as-index>65000</as-index>
+           <stitching-rt>0</stitching-rt>
+          </as-or-four-byte-as>
+          <as-or-four-byte-as>
+           <as-xx>0</as-xx>
+           <as>65000</as>
+           <as-index>65000</as-index>
+           <stitching-rt>0</stitching-rt>
+          </as-or-four-byte-as>
+          <as-or-four-byte-as>
+           <as-xx>0</as-xx>
+           <as>65005</as>
+           <as-index>65000</as-index>
            <stitching-rt>0</stitching-rt>
           </as-or-four-byte-as>
          </route-target>
@@ -5081,7 +5782,7 @@ end-policy
       <bgp>
        <global>
         <config>
-         <as>65001</as>
+         <as>65005</as>
          <router-id>10.101.112.1</router-id>
         </config>
         <afi-safis>
@@ -5127,7 +5828,7 @@ end-policy
          <peer-group-name>RR-EVEN</peer-group-name>
          <config>
           <peer-group-name>RR-EVEN</peer-group-name>
-          <peer-as>65001</peer-as>
+          <peer-as>65005</peer-as>
          </config>
          <afi-safis>
           <afi-safi>
@@ -5165,6 +5866,30 @@ end-policy
           </afi-safi>
          </afi-safis>
         </peer-group>
+        <peer-group>
+         <peer-group-name>MEDCOI-MTF</peer-group-name>
+         <config>
+          <peer-group-name>MEDCOI-MTF</peer-group-name>
+          <peer-as>65301</peer-as>
+          <local-as>65000</local-as>
+          <auth-password>14141B180F0B</auth-password>
+         </config>
+         <afi-safis>
+          <afi-safi>
+           <afi-safi-name>IPV4_UNICAST</afi-safi-name>
+           <config>
+            <afi-safi-name>IPV4_UNICAST</afi-safi-name>
+            <enabled>true</enabled>
+           </config>
+           <apply-policy>
+            <config>
+             <import-policy>ALL</import-policy>
+             <export-policy>ALL</export-policy>
+            </config>
+           </apply-policy>
+          </afi-safi>
+         </afi-safis>
+        </peer-group>
        </peer-groups>
        <neighbors>
         <neighbor>
@@ -5172,7 +5897,7 @@ end-policy
          <config>
           <neighbor-address>10.21.12.2</neighbor-address>
           <peer-as>65002</peer-as>
-          <description>ASBR 65002 </description>
+          <description>ASBR 65002</description>
          </config>
          <ebgp-multihop>
           <config>
@@ -5263,8 +5988,8 @@ end-policy
       <identifier xmlns:idx="http://openconfig.net/yang/policy-types">idx:STATIC</identifier>
       <name>DEFAULT</name>
       <config>
-       <identifier xmlns:idx="http://openconfig.net/yang/policy-types">idx:ISIS</identifier>
-       <name>ISIS</name>
+       <identifier xmlns:idx="http://openconfig.net/yang/policy-types">idx:STATIC</identifier>
+       <name>DEFAULT</name>
       </config>
       <static-routes>
        <static>
@@ -5285,6 +6010,120 @@ end-policy
             <subinterface>1412</subinterface>
            </config>
           </interface-ref>
+         </next-hop>
+        </next-hops>
+       </static>
+      </static-routes>
+     </protocol>
+     <protocol>
+      <identifier>BGP</identifier>
+      <name>default</name>
+      <bgp>
+       <global>
+        <config>
+         <as>65005</as>
+        </config>
+        <afi-safis>
+         <afi-safi>
+          <afi-safi-name>IPV4_UNICAST</afi-safi-name>
+          <config>
+           <afi-safi-name>IPV4_UNICAST</afi-safi-name>
+           <enabled>true</enabled>
+          </config>
+         </afi-safi>
+        </afi-safis>
+       </global>
+       <neighbors>
+        <neighbor>
+         <neighbor-address>10.112.1.4</neighbor-address>
+         <config>
+          <neighbor-address>10.112.1.4</neighbor-address>
+          <peer-as>65400</peer-as>
+         </config>
+         <afi-safis>
+          <afi-safi>
+           <afi-safi-name>IPV4_LABELED_UNICAST</afi-safi-name>
+           <config>
+            <afi-safi-name>IPV4_LABELED_UNICAST</afi-safi-name>
+            <enabled>true</enabled>
+           </config>
+           <apply-policy>
+            <config>
+             <import-policy>ALL</import-policy>
+             <export-policy>ALL</export-policy>
+            </config>
+           </apply-policy>
+          </afi-safi>
+         </afi-safis>
+        </neighbor>
+       </neighbors>
+      </bgp>
+     </protocol>
+    </protocols>
+    <interfaces>
+     <interface>
+      <id>GigabitEthernet0/0/0/0.1412</id>
+      <config>
+       <id>GigabitEthernet0/0/0/0.1412</id>
+       <interface>GigabitEthernet0/0/0/0</interface>
+       <subinterface>1412</subinterface>
+      </config>
+     </interface>
+    </interfaces>
+   </network-instance>
+   <network-instance>
+    <name>MPG</name>
+    <protocols>
+     <protocol>
+      <identifier xmlns:idx="http://openconfig.net/yang/policy-types">idx:STATIC</identifier>
+      <name>DEFAULT</name>
+      <config>
+       <identifier xmlns:idx="http://openconfig.net/yang/policy-types">idx:ISIS</identifier>
+       <name>ISIS</name>
+      </config>
+      <static-routes>
+       <static>
+        <prefix>172.31.1.0/24</prefix>
+        <config>
+         <prefix>172.31.1.0/24</prefix>
+        </config>
+        <next-hops>
+         <next-hop>
+          <index>**DROP**</index>
+          <config>
+           <index>**DROP**</index>
+           <next-hop xmlns:idx="http://openconfig.net/yang/local-routing">idx:DROP</next-hop>
+          </config>
+         </next-hop>
+        </next-hops>
+       </static>
+       <static>
+        <prefix>172.31.2.0/24</prefix>
+        <config>
+         <prefix>172.31.2.0/24</prefix>
+        </config>
+        <next-hops>
+         <next-hop>
+          <index>**DROP**</index>
+          <config>
+           <index>**DROP**</index>
+           <next-hop xmlns:idx="http://openconfig.net/yang/local-routing">idx:DROP</next-hop>
+          </config>
+         </next-hop>
+        </next-hops>
+       </static>
+       <static>
+        <prefix>172.31.3.0/24</prefix>
+        <config>
+         <prefix>172.31.3.0/24</prefix>
+        </config>
+        <next-hops>
+         <next-hop>
+          <index>**DROP**</index>
+          <config>
+           <index>**DROP**</index>
+           <next-hop xmlns:idx="http://openconfig.net/yang/local-routing">idx:DROP</next-hop>
+          </config>
          </next-hop>
         </next-hops>
        </static>
@@ -5335,7 +6174,7 @@ end-policy
       <bgp>
        <global>
         <config>
-         <as>65001</as>
+         <as>65005</as>
         </config>
         <afi-safis>
          <afi-safi>
@@ -5349,16 +6188,19 @@ end-policy
        </global>
        <neighbors>
         <neighbor>
-         <neighbor-address>10.112.1.4</neighbor-address>
+         <neighbor-address>172.17.0.9</neighbor-address>
          <config>
-          <neighbor-address>10.112.1.4</neighbor-address>
-          <peer-as>65400</peer-as>
+          <neighbor-address>172.17.0.9</neighbor-address>
+          <peer-as>65301</peer-as>
+          <local-as>65002</local-as>
+          <auth-password>060506324F41</auth-password>
+          <description>DHA GW1-Rtr</description>
          </config>
          <afi-safis>
           <afi-safi>
-           <afi-safi-name>IPV4_LABELED_UNICAST</afi-safi-name>
+           <afi-safi-name>IPV4_UNICAST</afi-safi-name>
            <config>
-            <afi-safi-name>IPV4_LABELED_UNICAST</afi-safi-name>
+            <afi-safi-name>IPV4_UNICAST</afi-safi-name>
             <enabled>true</enabled>
            </config>
            <apply-policy>
@@ -5427,11 +6269,365 @@ end-policy
     </mpls>
     <interfaces>
      <interface>
-      <id>GigabitEthernet0/0/0/0.1412</id>
+      <id>GigabitEthernet0/0/0/1</id>
       <config>
-       <id>GigabitEthernet0/0/0/0.1412</id>
-       <interface>GigabitEthernet0/0/0/0</interface>
-       <subinterface>1412</subinterface>
+       <id>GigabitEthernet0/0/0/1</id>
+       <interface>GigabitEthernet0/0/0/1</interface>
+       <subinterface>0</subinterface>
+      </config>
+     </interface>
+    </interfaces>
+   </network-instance>
+   <network-instance>
+    <name>NIPR</name>
+    <protocols>
+     <protocol>
+      <identifier>BGP</identifier>
+      <name>default</name>
+      <bgp>
+       <global>
+        <config>
+         <as>65005</as>
+        </config>
+        <afi-safis>
+         <afi-safi>
+          <afi-safi-name>IPV4_UNICAST</afi-safi-name>
+          <config>
+           <afi-safi-name>IPV4_UNICAST</afi-safi-name>
+           <enabled>true</enabled>
+          </config>
+         </afi-safi>
+        </afi-safis>
+       </global>
+       <neighbors>
+        <neighbor>
+         <neighbor-address>172.17.0.5</neighbor-address>
+         <config>
+          <neighbor-address>172.17.0.5</neighbor-address>
+          <peer-as>65301</peer-as>
+          <local-as>65001</local-as>
+          <auth-password>030752180500</auth-password>
+         </config>
+         <afi-safis>
+          <afi-safi>
+           <afi-safi-name>IPV4_UNICAST</afi-safi-name>
+           <config>
+            <afi-safi-name>IPV4_UNICAST</afi-safi-name>
+            <enabled>true</enabled>
+           </config>
+           <apply-policy>
+            <config>
+             <import-policy>ALL</import-policy>
+             <export-policy>ALL</export-policy>
+            </config>
+           </apply-policy>
+           <ipv4-unicast>
+            <config>
+             <send-default-route>true</send-default-route>
+            </config>
+           </ipv4-unicast>
+          </afi-safi>
+         </afi-safis>
+        </neighbor>
+        <neighbor>
+         <neighbor-address>172.17.12.2</neighbor-address>
+         <config>
+          <neighbor-address>172.17.12.2</neighbor-address>
+          <peer-as>5972</peer-as>
+         </config>
+         <afi-safis>
+          <afi-safi>
+           <afi-safi-name>IPV4_UNICAST</afi-safi-name>
+           <config>
+            <afi-safi-name>IPV4_UNICAST</afi-safi-name>
+            <enabled>true</enabled>
+           </config>
+           <apply-policy>
+            <config>
+             <import-policy>ALL</import-policy>
+             <export-policy>ALL</export-policy>
+            </config>
+           </apply-policy>
+          </afi-safi>
+         </afi-safis>
+        </neighbor>
+        <neighbor>
+         <neighbor-address>172.17.12.6</neighbor-address>
+         <config>
+          <neighbor-address>172.17.12.6</neighbor-address>
+          <peer-as>5972</peer-as>
+         </config>
+         <afi-safis>
+          <afi-safi>
+           <afi-safi-name>IPV4_UNICAST</afi-safi-name>
+           <config>
+            <afi-safi-name>IPV4_UNICAST</afi-safi-name>
+            <enabled>true</enabled>
+           </config>
+           <apply-policy>
+            <config>
+             <import-policy>ALL</import-policy>
+             <export-policy>ALL</export-policy>
+            </config>
+           </apply-policy>
+          </afi-safi>
+         </afi-safis>
+        </neighbor>
+       </neighbors>
+      </bgp>
+     </protocol>
+    </protocols>
+    <interfaces>
+     <interface>
+      <id>Loopback27064</id>
+      <config>
+       <id>Loopback27064</id>
+       <interface>Loopback27064</interface>
+       <subinterface>0</subinterface>
+      </config>
+     </interface>
+     <interface>
+      <id>GigabitEthernet0/0/0/3</id>
+      <config>
+       <id>GigabitEthernet0/0/0/3</id>
+       <interface>GigabitEthernet0/0/0/3</interface>
+       <subinterface>0</subinterface>
+      </config>
+     </interface>
+     <interface>
+      <id>GigabitEthernet0/0/0/3.1201</id>
+      <config>
+       <id>GigabitEthernet0/0/0/3.1201</id>
+       <interface>GigabitEthernet0/0/0/3</interface>
+       <subinterface>1201</subinterface>
+      </config>
+     </interface>
+     <interface>
+      <id>GigabitEthernet0/0/0/3.1205</id>
+      <config>
+       <id>GigabitEthernet0/0/0/3.1205</id>
+       <interface>GigabitEthernet0/0/0/3</interface>
+       <subinterface>1205</subinterface>
+      </config>
+     </interface>
+    </interfaces>
+   </network-instance>
+   <network-instance>
+    <name>MED-COI</name>
+    <protocols>
+     <protocol>
+      <identifier>BGP</identifier>
+      <name>default</name>
+      <bgp>
+       <global>
+        <config>
+         <as>65005</as>
+        </config>
+        <afi-safis>
+         <afi-safi>
+          <afi-safi-name>IPV4_UNICAST</afi-safi-name>
+          <config>
+           <afi-safi-name>IPV4_UNICAST</afi-safi-name>
+           <enabled>true</enabled>
+          </config>
+         </afi-safi>
+        </afi-safis>
+       </global>
+       <neighbors>
+        <neighbor>
+         <neighbor-address>172.16.0.21</neighbor-address>
+         <config>
+          <neighbor-address>172.16.0.21</neighbor-address>
+          <peer-as>65301</peer-as>
+          <local-as>65000</local-as>
+          <auth-password>094F471A1A0A</auth-password>
+          <description>DHA GW1-Rtr</description>
+         </config>
+         <afi-safis>
+          <afi-safi>
+           <afi-safi-name>IPV4_UNICAST</afi-safi-name>
+           <config>
+            <afi-safi-name>IPV4_UNICAST</afi-safi-name>
+            <enabled>true</enabled>
+           </config>
+           <apply-policy>
+            <config>
+             <import-policy>ALL</import-policy>
+             <export-policy>ALL</export-policy>
+            </config>
+           </apply-policy>
+          </afi-safi>
+         </afi-safis>
+        </neighbor>
+        <neighbor>
+         <neighbor-address>172.17.0.21</neighbor-address>
+         <config>
+          <neighbor-address>172.17.0.21</neighbor-address>
+          <peer-as>65301</peer-as>
+          <local-as>65000</local-as>
+          <auth-password>0822455D0A16</auth-password>
+          <description>DHA GW2-Rtr</description>
+         </config>
+         <afi-safis>
+          <afi-safi>
+           <afi-safi-name>IPV4_UNICAST</afi-safi-name>
+           <config>
+            <afi-safi-name>IPV4_UNICAST</afi-safi-name>
+            <enabled>true</enabled>
+           </config>
+           <apply-policy>
+            <config>
+             <import-policy>ALL</import-policy>
+             <export-policy>ALL</export-policy>
+            </config>
+           </apply-policy>
+          </afi-safi>
+         </afi-safis>
+        </neighbor>
+        <neighbor>
+         <neighbor-address>172.18.0.13</neighbor-address>
+         <config>
+          <neighbor-address>172.18.0.13</neighbor-address>
+          <peer-as>65301</peer-as>
+          <local-as>65000</local-as>
+          <auth-password>14141B180F0B</auth-password>
+         </config>
+         <afi-safis>
+          <afi-safi>
+           <afi-safi-name>IPV4_UNICAST</afi-safi-name>
+           <config>
+            <afi-safi-name>IPV4_UNICAST</afi-safi-name>
+            <enabled>true</enabled>
+           </config>
+           <apply-policy>
+            <config>
+             <import-policy>ALL</import-policy>
+             <export-policy>ALL</export-policy>
+            </config>
+           </apply-policy>
+          </afi-safi>
+         </afi-safis>
+        </neighbor>
+        <neighbor>
+         <neighbor-address>172.19.0.13</neighbor-address>
+         <config>
+          <neighbor-address>172.19.0.13</neighbor-address>
+          <peer-as>65301</peer-as>
+          <local-as>65000</local-as>
+          <auth-password>121A0C041104</auth-password>
+          <description>DHA MTF1Clinic1-Rtr</description>
+         </config>
+         <afi-safis>
+          <afi-safi>
+           <afi-safi-name>IPV4_UNICAST</afi-safi-name>
+           <config>
+            <afi-safi-name>IPV4_UNICAST</afi-safi-name>
+            <enabled>true</enabled>
+           </config>
+           <apply-policy>
+            <config>
+             <import-policy>ALL</import-policy>
+             <export-policy>ALL</export-policy>
+            </config>
+           </apply-policy>
+          </afi-safi>
+         </afi-safis>
+        </neighbor>
+        <neighbor>
+         <neighbor-address>172.21.0.13</neighbor-address>
+         <config>
+          <neighbor-address>172.21.0.13</neighbor-address>
+          <peer-group>MEDCOI-MTF</peer-group>
+         </config>
+        </neighbor>
+        <neighbor>
+         <neighbor-address>172.24.0.13</neighbor-address>
+         <config>
+          <neighbor-address>172.24.0.13</neighbor-address>
+          <peer-group>MEDCOI-MTF</peer-group>
+         </config>
+        </neighbor>
+        <neighbor>
+         <neighbor-address>172.27.0.13</neighbor-address>
+         <config>
+          <neighbor-address>172.27.0.13</neighbor-address>
+          <peer-group>MEDCOI-MTF</peer-group>
+         </config>
+        </neighbor>
+        <neighbor>
+         <neighbor-address>172.30.0.13</neighbor-address>
+         <config>
+          <neighbor-address>172.30.0.13</neighbor-address>
+          <peer-group>MEDCOI-MTF</peer-group>
+         </config>
+        </neighbor>
+       </neighbors>
+      </bgp>
+     </protocol>
+    </protocols>
+    <interfaces>
+     <interface>
+      <id>GigabitEthernet0/0/0/2</id>
+      <config>
+       <id>GigabitEthernet0/0/0/2</id>
+       <interface>GigabitEthernet0/0/0/2</interface>
+       <subinterface>0</subinterface>
+      </config>
+     </interface>
+     <interface>
+      <id>GigabitEthernet0/0/0/4</id>
+      <config>
+       <id>GigabitEthernet0/0/0/4</id>
+       <interface>GigabitEthernet0/0/0/4</interface>
+       <subinterface>0</subinterface>
+      </config>
+     </interface>
+     <interface>
+      <id>GigabitEthernet0/0/0/5</id>
+      <config>
+       <id>GigabitEthernet0/0/0/5</id>
+       <interface>GigabitEthernet0/0/0/5</interface>
+       <subinterface>0</subinterface>
+      </config>
+     </interface>
+     <interface>
+      <id>GigabitEthernet0/0/0/6</id>
+      <config>
+       <id>GigabitEthernet0/0/0/6</id>
+       <interface>GigabitEthernet0/0/0/6</interface>
+       <subinterface>0</subinterface>
+      </config>
+     </interface>
+     <interface>
+      <id>GigabitEthernet0/0/0/2.1020</id>
+      <config>
+       <id>GigabitEthernet0/0/0/2.1020</id>
+       <interface>GigabitEthernet0/0/0/2</interface>
+       <subinterface>1020</subinterface>
+      </config>
+     </interface>
+     <interface>
+      <id>GigabitEthernet0/0/0/2.1030</id>
+      <config>
+       <id>GigabitEthernet0/0/0/2.1030</id>
+       <interface>GigabitEthernet0/0/0/2</interface>
+       <subinterface>1030</subinterface>
+      </config>
+     </interface>
+     <interface>
+      <id>GigabitEthernet0/0/0/2.1040</id>
+      <config>
+       <id>GigabitEthernet0/0/0/2.1040</id>
+       <interface>GigabitEthernet0/0/0/2</interface>
+       <subinterface>1040</subinterface>
+      </config>
+     </interface>
+     <interface>
+      <id>GigabitEthernet0/0/0/2.1050</id>
+      <config>
+       <id>GigabitEthernet0/0/0/2.1050</id>
+       <interface>GigabitEthernet0/0/0/2</interface>
+       <subinterface>1050</subinterface>
       </config>
      </interface>
     </interfaces>
@@ -5457,9 +6653,32 @@ end-policy
     </config>
    </network-instance>
    <network-instance>
+    <name>MPG</name>
+    <config>
+     <name>MPG</name>
+     <description>DHA MPG</description>
+     <enabled-address-families xmlns:idx="http://openconfig.net/yang/openconfig-types">idx:IPV4</enabled-address-families>
+    </config>
+   </network-instance>
+   <network-instance>
     <name>ARMY</name>
     <config>
      <name>ARMY</name>
+     <enabled-address-families xmlns:idx="http://openconfig.net/yang/openconfig-types">idx:IPV4</enabled-address-families>
+    </config>
+   </network-instance>
+   <network-instance>
+    <name>NIPR</name>
+    <config>
+     <name>NIPR</name>
+     <enabled-address-families xmlns:idx="http://openconfig.net/yang/openconfig-types">idx:IPV4</enabled-address-families>
+    </config>
+   </network-instance>
+   <network-instance>
+    <name>MED-COI</name>
+    <config>
+     <name>MED-COI</name>
+     <description>DHA MED_COI</description>
      <enabled-address-families xmlns:idx="http://openconfig.net/yang/openconfig-types">idx:IPV4</enabled-address-families>
     </config>
    </network-instance>
@@ -5814,6 +7033,30 @@ end-policy
     </subinterfaces>
    </interface>
    <interface>
+    <name>Loopback27064</name>
+    <config>
+     <name>Loopback27064</name>
+     <type xmlns:idx="urn:ietf:params:xml:ns:yang:iana-if-type">idx:softwareLoopback</type>
+     <enabled>true</enabled>
+    </config>
+    <subinterfaces>
+     <subinterface>
+      <index>0</index>
+      <ipv4 xmlns="http://openconfig.net/yang/interfaces/ip">
+       <addresses>
+        <address>
+         <ip>172.16.12.1</ip>
+         <config>
+          <ip>172.16.12.1</ip>
+          <prefix-length>32</prefix-length>
+         </config>
+        </address>
+       </addresses>
+      </ipv4>
+     </subinterface>
+    </subinterfaces>
+   </interface>
+   <interface>
     <name>MgmtEth0/RP0/CPU0/0</name>
     <config>
      <name>MgmtEth0/RP0/CPU0/0</name>
@@ -5921,7 +7164,7 @@ end-policy
        <index>1412</index>
        <name>GigabitEthernet0/0/0/0.1412</name>
        <enabled>true</enabled>
-       <description>TO CE412 </description>
+       <description>TO CE412</description>
       </config>
       <ipv6 xmlns="http://openconfig.net/yang/interfaces/ip">
        <config>
@@ -5952,13 +7195,30 @@ end-policy
     <config>
      <name>GigabitEthernet0/0/0/1</name>
      <type xmlns:idx="urn:ietf:params:xml:ns:yang:iana-if-type">idx:ethernetCsmacd</type>
-     <enabled>false</enabled>
+     <enabled>true</enabled>
+     <description>GW2-Rtr GigabitEthernet2 VRF ext 172.17.0.9 VIA DHA3250</description>
     </config>
     <ethernet xmlns="http://openconfig.net/yang/interfaces/ethernet">
      <config>
       <auto-negotiate>false</auto-negotiate>
      </config>
     </ethernet>
+    <subinterfaces>
+     <subinterface>
+      <index>0</index>
+      <ipv4 xmlns="http://openconfig.net/yang/interfaces/ip">
+       <addresses>
+        <address>
+         <ip>172.17.0.10</ip>
+         <config>
+          <ip>172.17.0.10</ip>
+          <prefix-length>30</prefix-length>
+         </config>
+        </address>
+       </addresses>
+      </ipv4>
+     </subinterface>
+    </subinterfaces>
    </interface>
    <interface>
     <name>GigabitEthernet0/0/0/2</name>
@@ -5966,6 +7226,7 @@ end-policy
      <name>GigabitEthernet0/0/0/2</name>
      <type xmlns:idx="urn:ietf:params:xml:ns:yang:iana-if-type">idx:ethernetCsmacd</type>
      <enabled>true</enabled>
+     <description>MTF1-Rtr GLOBAL 172.18.0.13 VIA DHA 3121</description>
      <mtu>4470</mtu>
     </config>
     <ethernet xmlns="http://openconfig.net/yang/interfaces/ethernet">
@@ -5974,6 +7235,140 @@ end-policy
      </config>
     </ethernet>
     <subinterfaces>
+     <subinterface>
+      <index>0</index>
+      <ipv4 xmlns="http://openconfig.net/yang/interfaces/ip">
+       <addresses>
+        <address>
+         <ip>172.18.0.14</ip>
+         <config>
+          <ip>172.18.0.14</ip>
+          <prefix-length>30</prefix-length>
+         </config>
+        </address>
+       </addresses>
+      </ipv4>
+     </subinterface>
+     <subinterface>
+      <index>1020</index>
+      <config>
+       <index>1020</index>
+       <name>GigabitEthernet0/0/0/2.1020</name>
+       <enabled>true</enabled>
+       <description>MTF2-Rtr GLOBAL 172.21.0.13 VIA DHA 3121</description>
+      </config>
+      <ipv6 xmlns="http://openconfig.net/yang/interfaces/ip">
+       <config>
+        <enabled>false</enabled>
+       </config>
+      </ipv6>
+      <ipv4 xmlns="http://openconfig.net/yang/interfaces/ip">
+       <addresses>
+        <address>
+         <ip>172.21.0.14</ip>
+         <config>
+          <ip>172.21.0.14</ip>
+          <prefix-length>30</prefix-length>
+         </config>
+        </address>
+       </addresses>
+      </ipv4>
+      <vlan xmlns="http://openconfig.net/yang/vlan">
+       <config>
+        <vlan-id>1020</vlan-id>
+       </config>
+      </vlan>
+     </subinterface>
+     <subinterface>
+      <index>1030</index>
+      <config>
+       <index>1030</index>
+       <name>GigabitEthernet0/0/0/2.1030</name>
+       <enabled>true</enabled>
+       <description>MTF3-Rtr GLOBAL 172.24.0.13 VIA DHA 3121</description>
+      </config>
+      <ipv6 xmlns="http://openconfig.net/yang/interfaces/ip">
+       <config>
+        <enabled>false</enabled>
+       </config>
+      </ipv6>
+      <ipv4 xmlns="http://openconfig.net/yang/interfaces/ip">
+       <addresses>
+        <address>
+         <ip>172.24.0.14</ip>
+         <config>
+          <ip>172.24.0.14</ip>
+          <prefix-length>30</prefix-length>
+         </config>
+        </address>
+       </addresses>
+      </ipv4>
+      <vlan xmlns="http://openconfig.net/yang/vlan">
+       <config>
+        <vlan-id>1030</vlan-id>
+       </config>
+      </vlan>
+     </subinterface>
+     <subinterface>
+      <index>1040</index>
+      <config>
+       <index>1040</index>
+       <name>GigabitEthernet0/0/0/2.1040</name>
+       <enabled>true</enabled>
+       <description>MTF4-Rtr GLOBAL 172.27.0.13 VIA DHA 3121</description>
+      </config>
+      <ipv6 xmlns="http://openconfig.net/yang/interfaces/ip">
+       <config>
+        <enabled>false</enabled>
+       </config>
+      </ipv6>
+      <ipv4 xmlns="http://openconfig.net/yang/interfaces/ip">
+       <addresses>
+        <address>
+         <ip>172.27.0.14</ip>
+         <config>
+          <ip>172.27.0.14</ip>
+          <prefix-length>30</prefix-length>
+         </config>
+        </address>
+       </addresses>
+      </ipv4>
+      <vlan xmlns="http://openconfig.net/yang/vlan">
+       <config>
+        <vlan-id>1040</vlan-id>
+       </config>
+      </vlan>
+     </subinterface>
+     <subinterface>
+      <index>1050</index>
+      <config>
+       <index>1050</index>
+       <name>GigabitEthernet0/0/0/2.1050</name>
+       <enabled>true</enabled>
+       <description>MTF5-Rtr GLOBAL 172.30.0.13 VIA DHA 3121</description>
+      </config>
+      <ipv6 xmlns="http://openconfig.net/yang/interfaces/ip">
+       <config>
+        <enabled>false</enabled>
+       </config>
+      </ipv6>
+      <ipv4 xmlns="http://openconfig.net/yang/interfaces/ip">
+       <addresses>
+        <address>
+         <ip>172.30.0.14</ip>
+         <config>
+          <ip>172.30.0.14</ip>
+          <prefix-length>30</prefix-length>
+         </config>
+        </address>
+       </addresses>
+      </ipv4>
+      <vlan xmlns="http://openconfig.net/yang/vlan">
+       <config>
+        <vlan-id>1050</vlan-id>
+       </config>
+      </vlan>
+     </subinterface>
      <subinterface>
       <index>2801</index>
       <config>
@@ -6010,43 +7405,146 @@ end-policy
     <config>
      <name>GigabitEthernet0/0/0/3</name>
      <type xmlns:idx="urn:ietf:params:xml:ns:yang:iana-if-type">idx:ethernetCsmacd</type>
-     <enabled>false</enabled>
+     <enabled>true</enabled>
     </config>
     <ethernet xmlns="http://openconfig.net/yang/interfaces/ethernet">
      <config>
       <auto-negotiate>false</auto-negotiate>
      </config>
     </ethernet>
+    <subinterfaces>
+     <subinterface>
+      <index>0</index>
+      <ipv4 xmlns="http://openconfig.net/yang/interfaces/ip">
+       <addresses>
+        <address>
+         <ip>172.17.0.6</ip>
+         <config>
+          <ip>172.17.0.6</ip>
+          <prefix-length>30</prefix-length>
+         </config>
+        </address>
+       </addresses>
+      </ipv4>
+     </subinterface>
+     <subinterface>
+      <index>1201</index>
+      <config>
+       <index>1201</index>
+       <name>GigabitEthernet0/0/0/3.1201</name>
+       <enabled>true</enabled>
+      </config>
+      <ipv6 xmlns="http://openconfig.net/yang/interfaces/ip">
+       <config>
+        <enabled>false</enabled>
+       </config>
+      </ipv6>
+      <ipv4 xmlns="http://openconfig.net/yang/interfaces/ip">
+       <addresses>
+        <address>
+         <ip>172.17.12.1</ip>
+         <config>
+          <ip>172.17.12.1</ip>
+          <prefix-length>30</prefix-length>
+         </config>
+        </address>
+       </addresses>
+      </ipv4>
+      <vlan xmlns="http://openconfig.net/yang/vlan">
+       <config>
+        <vlan-id>1201</vlan-id>
+       </config>
+      </vlan>
+     </subinterface>
+     <subinterface>
+      <index>1205</index>
+      <config>
+       <index>1205</index>
+       <name>GigabitEthernet0/0/0/3.1205</name>
+       <enabled>true</enabled>
+      </config>
+      <ipv6 xmlns="http://openconfig.net/yang/interfaces/ip">
+       <config>
+        <enabled>false</enabled>
+       </config>
+      </ipv6>
+      <ipv4 xmlns="http://openconfig.net/yang/interfaces/ip">
+       <addresses>
+        <address>
+         <ip>172.17.12.5</ip>
+         <config>
+          <ip>172.17.12.5</ip>
+          <prefix-length>30</prefix-length>
+         </config>
+        </address>
+       </addresses>
+      </ipv4>
+      <vlan xmlns="http://openconfig.net/yang/vlan">
+       <config>
+        <vlan-id>1205</vlan-id>
+       </config>
+      </vlan>
+     </subinterface>
+    </subinterfaces>
    </interface>
    <interface>
     <name>GigabitEthernet0/0/0/4</name>
     <config>
      <name>GigabitEthernet0/0/0/4</name>
      <type xmlns:idx="urn:ietf:params:xml:ns:yang:iana-if-type">idx:ethernetCsmacd</type>
-     <enabled>false</enabled>
+     <enabled>true</enabled>
+     <description>DHA-GW2-Rtr GLOBAL 172.17.0.21 via DHA3121</description>
     </config>
     <ethernet xmlns="http://openconfig.net/yang/interfaces/ethernet">
      <config>
       <auto-negotiate>false</auto-negotiate>
      </config>
     </ethernet>
-   </interface>
-   <interface>
-    <name>GigabitEthernet0/0/0/6</name>
-    <config>
-     <name>GigabitEthernet0/0/0/6</name>
-     <type xmlns:idx="urn:ietf:params:xml:ns:yang:iana-if-type">idx:ethernetCsmacd</type>
-     <enabled>false</enabled>
-    </config>
-    <ethernet xmlns="http://openconfig.net/yang/interfaces/ethernet">
-     <config>
-      <auto-negotiate>false</auto-negotiate>
-     </config>
-    </ethernet>
+    <subinterfaces>
+     <subinterface>
+      <index>0</index>
+      <ipv4 xmlns="http://openconfig.net/yang/interfaces/ip">
+       <addresses>
+        <address>
+         <ip>172.17.0.22</ip>
+         <config>
+          <ip>172.17.0.22</ip>
+          <prefix-length>30</prefix-length>
+         </config>
+        </address>
+       </addresses>
+      </ipv4>
+     </subinterface>
+    </subinterfaces>
    </interface>
    <interface>
     <name>GigabitEthernet0/0/0/5</name>
+    <config>
+     <name>GigabitEthernet0/0/0/5</name>
+     <type xmlns:idx="urn:ietf:params:xml:ns:yang:iana-if-type">idx:ethernetCsmacd</type>
+     <enabled>true</enabled>
+     <description>MTFClinic1-Rtr GigabitEthernet2 GLOBAL 172.19.0.21 VIA DHA3129</description>
+    </config>
+    <ethernet xmlns="http://openconfig.net/yang/interfaces/ethernet">
+     <config>
+      <auto-negotiate>false</auto-negotiate>
+     </config>
+    </ethernet>
     <subinterfaces>
+     <subinterface>
+      <index>0</index>
+      <ipv4 xmlns="http://openconfig.net/yang/interfaces/ip">
+       <addresses>
+        <address>
+         <ip>172.19.0.14</ip>
+         <config>
+          <ip>172.19.0.14</ip>
+          <prefix-length>30</prefix-length>
+         </config>
+        </address>
+       </addresses>
+      </ipv4>
+     </subinterface>
      <subinterface>
       <index>100</index>
       <config>
@@ -6075,6 +7573,36 @@ end-policy
      </subinterface>
     </subinterfaces>
    </interface>
+   <interface>
+    <name>GigabitEthernet0/0/0/6</name>
+    <config>
+     <name>GigabitEthernet0/0/0/6</name>
+     <type xmlns:idx="urn:ietf:params:xml:ns:yang:iana-if-type">idx:ethernetCsmacd</type>
+     <enabled>true</enabled>
+     <description>GW1-RTR GLOBAL 172.16.0.21 VIA DHA 3121</description>
+    </config>
+    <ethernet xmlns="http://openconfig.net/yang/interfaces/ethernet">
+     <config>
+      <auto-negotiate>false</auto-negotiate>
+     </config>
+    </ethernet>
+    <subinterfaces>
+     <subinterface>
+      <index>0</index>
+      <ipv4 xmlns="http://openconfig.net/yang/interfaces/ip">
+       <addresses>
+        <address>
+         <ip>172.16.0.22</ip>
+         <config>
+          <ip>172.16.0.22</ip>
+          <prefix-length>30</prefix-length>
+         </config>
+        </address>
+       </addresses>
+      </ipv4>
+     </subinterface>
+    </subinterfaces>
+   </interface>
   </interfaces>
   <lacp xmlns="http://openconfig.net/yang/lacp">
    <interfaces>
@@ -6088,6 +7616,12 @@ end-policy
      <name>Loopback425</name>
      <config>
       <name>Loopback425</name>
+     </config>
+    </interface>
+    <interface>
+     <name>Loopback27064</name>
+     <config>
+      <name>Loopback27064</name>
      </config>
     </interface>
     <interface>
@@ -6127,6 +7661,12 @@ end-policy
      </config>
     </interface>
     <interface>
+     <name>GigabitEthernet0/0/0/5</name>
+     <config>
+      <name>GigabitEthernet0/0/0/5</name>
+     </config>
+    </interface>
+    <interface>
      <name>GigabitEthernet0/0/0/6</name>
      <config>
       <name>GigabitEthernet0/0/0/6</name>
@@ -6148,7 +7688,25 @@ end-policy
      <name>GigabitEthernet0/0/0/0.1412</name>
     </interface>
     <interface>
+     <name>GigabitEthernet0/0/0/2.1020</name>
+    </interface>
+    <interface>
+     <name>GigabitEthernet0/0/0/2.1030</name>
+    </interface>
+    <interface>
+     <name>GigabitEthernet0/0/0/2.1040</name>
+    </interface>
+    <interface>
+     <name>GigabitEthernet0/0/0/2.1050</name>
+    </interface>
+    <interface>
      <name>GigabitEthernet0/0/0/2.2801</name>
+    </interface>
+    <interface>
+     <name>GigabitEthernet0/0/0/3.1201</name>
+    </interface>
+    <interface>
+     <name>GigabitEthernet0/0/0/3.1205</name>
     </interface>
    </interfaces>
   </lacp>
@@ -6237,9 +7795,9 @@ end-policy
      </config>
      <statements>
       <statement>
-       <name>statement-1579821409707563</name>
+       <name>statement-1615241805197400</name>
        <config>
-        <name>statement-1579821409707563</name>
+        <name>statement-1615241805197400</name>
        </config>
        <conditions>
         <match-prefix-set>
@@ -6264,9 +7822,9 @@ end-policy
      </config>
      <statements>
       <statement>
-       <name>statement-1579821409707708</name>
+       <name>statement-1615241805197533</name>
        <config>
-        <name>statement-1579821409707708</name>
+        <name>statement-1615241805197533</name>
        </config>
        <actions>
         <config>
@@ -6283,9 +7841,9 @@ end-policy
      </config>
      <statements>
       <statement>
-       <name>statement-1579821409707797</name>
+       <name>statement-1615241805197617</name>
        <config>
-        <name>statement-1579821409707797</name>
+        <name>statement-1615241805197617</name>
        </config>
        <conditions>
         <match-prefix-set>
@@ -6310,9 +7868,9 @@ end-policy
      </config>
      <statements>
       <statement>
-       <name>statement-1579821409707914</name>
+       <name>statement-1615241805197740</name>
        <config>
-        <name>statement-1579821409707914</name>
+        <name>statement-1615241805197740</name>
        </config>
        <conditions>
         <match-prefix-set>
@@ -6337,9 +7895,9 @@ end-policy
      </config>
      <statements>
       <statement>
-       <name>statement-1579821409708031</name>
+       <name>statement-1615241805197857</name>
        <config>
-        <name>statement-1579821409708031</name>
+        <name>statement-1615241805197857</name>
        </config>
        <conditions>
         <match-prefix-set>
@@ -6356,9 +7914,9 @@ end-policy
        </actions>
       </statement>
       <statement>
-       <name>statement-1579821409708110</name>
+       <name>statement-1615241805197936</name>
        <config>
-        <name>statement-1579821409708110</name>
+        <name>statement-1615241805197936</name>
        </config>
        <actions>
         <config>
@@ -6375,9 +7933,9 @@ end-policy
      </config>
      <statements>
       <statement>
-       <name>statement-1579821409708190</name>
+       <name>statement-1615241805198016</name>
        <config>
-        <name>statement-1579821409708190</name>
+        <name>statement-1615241805198016</name>
        </config>
        <actions>
         <config>

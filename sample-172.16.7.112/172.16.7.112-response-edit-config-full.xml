@@ -1,0 +1,184 @@
+172.16.7.112-config-module-host-names-20210308.xml<?xml version="1.0"?>
+<rpc-reply message-id="urn:uuid:02904697-4117-41e9-9852-bda0838655b1" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+ <ok/>
+</rpc-reply>
+<?xml version="1.0"?>
+<rpc-reply message-id="urn:uuid:aa24fd42-6a7b-4a8b-89c8-8f9e3d7466f9" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+ <ok/>
+</rpc-reply>
+172.16.7.112-config-module-mpls-oam-20210308.xml<?xml version="1.0"?>
+<rpc-reply message-id="urn:uuid:215260c2-8286-49e8-8246-cdc2a1592d67" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+ <ok/>
+</rpc-reply>
+<?xml version="1.0"?>
+<rpc-reply message-id="urn:uuid:555c88d7-16fc-47d4-9c0d-4b4e7aa42e42" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+ <ok/>
+</rpc-reply>
+172.16.7.112-config-module-ssh-20210308.xml<?xml version="1.0"?>
+<rpc-reply message-id="urn:uuid:a9ec2e9f-ea0c-4404-8680-42920dd34be8" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+ <ok/>
+</rpc-reply>
+<?xml version="1.0"?>
+<rpc-reply message-id="urn:uuid:6b4d8729-0df7-4465-af96-e6f66a832d9e" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+ <ok/>
+</rpc-reply>
+172.16.7.112-config-module-clock-20210308.xml<?xml version="1.0"?>
+<rpc-reply message-id="urn:uuid:4079ced8-c94c-4b35-9945-3af2b56a2d93" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+ <ok/>
+</rpc-reply>
+<?xml version="1.0"?>
+<rpc-reply message-id="urn:uuid:fd97fe52-7fb1-47f6-b68b-e7b1cc010a04" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+ <ok/>
+</rpc-reply>
+172.16.7.112-config-module-mpls-lsd-20210308.xml<?xml version="1.0"?>
+<rpc-reply message-id="urn:uuid:851060a3-5a5f-4edc-8e11-294af93f9e41" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+ <ok/>
+</rpc-reply>
+<?xml version="1.0"?>
+<rpc-reply message-id="urn:uuid:b92abdb0-f2e5-4da4-9002-ed6a9d595545" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+ <ok/>
+</rpc-reply>
+172.16.7.112-config-module-cdp-20210308.xml<?xml version="1.0"?>
+<rpc-reply message-id="urn:uuid:5c86eabf-9410-4346-8885-60b0c85bba32" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+ <ok/>
+</rpc-reply>
+<?xml version="1.0"?>
+<rpc-reply message-id="urn:uuid:ca4c4467-5f0c-4122-bce8-5c41b90461f1" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+ <ok/>
+</rpc-reply>
+172.16.7.112-config-module-router-static-20210308.xml<?xml version="1.0"?>
+<rpc-reply message-id="urn:uuid:fcc9b946-2422-4f31-b2a2-2192269eafe9" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+ <ok/>
+</rpc-reply>
+<?xml version="1.0"?>
+<rpc-reply message-id="urn:uuid:231723ce-03ad-40a7-a64a-8831df932c4a" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+ <ok/>
+</rpc-reply>
+172.16.7.112-config-module-mpls-te-20210308.xml<?xml version="1.0"?>
+<rpc-reply message-id="urn:uuid:45c24f8a-96e1-446e-9a90-0b511badd93e" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+ <ok/>
+</rpc-reply>
+<?xml version="1.0"?>
+<rpc-reply message-id="urn:uuid:491d7252-0434-48ce-99b6-5949da9c6d52" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+ <ok/>
+</rpc-reply>
+172.16.7.112-config-module-isis-20210308.xml<?xml version="1.0"?>
+<rpc-reply message-id="urn:uuid:bb02e0a7-e3af-4bf4-b163-e8c81fe16fb8" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+ <ok/>
+</rpc-reply>
+<?xml version="1.0"?>
+<rpc-reply message-id="urn:uuid:8086a10a-9934-40ec-8df3-d8683cc3e862" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+ <ok/>
+</rpc-reply>
+172.16.7.112-config-module-ipv4-acl-and-prefix-list-20210308.xml<?xml version="1.0"?>
+<rpc-reply message-id="urn:uuid:73284d0e-a572-4d23-a322-835af2889e90" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+ <ok/>
+</rpc-reply>
+<?xml version="1.0"?>
+<rpc-reply message-id="urn:uuid:f04c8e4b-4a46-41e7-99f3-3aaf79772097" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+ <ok/>
+</rpc-reply>
+172.16.7.112-config-module-telemetry-model-driven-20210308.xml<?xml version="1.0"?>
+<rpc-reply message-id="urn:uuid:91ccf66d-cae5-42fa-a1d0-66c83933540d" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+ <ok/>
+</rpc-reply>
+<?xml version="1.0"?>
+<rpc-reply message-id="urn:uuid:eaf1f95c-0189-43a1-b78c-d6e17306ae6e" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+ <ok/>
+</rpc-reply>
+172.16.7.112-config-module-rsvp-20210308.xml<?xml version="1.0"?>
+<rpc-reply message-id="urn:uuid:5b0f6113-4b80-4506-9dd2-458822265ca0" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+ <ok/>
+</rpc-reply>
+<?xml version="1.0"?>
+<rpc-reply message-id="urn:uuid:65341c0d-67b9-4aa5-b71d-ae7eed4c49ac" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+ <ok/>
+</rpc-reply>
+172.16.7.112-config-module-ipv4-network-global-20210308.xml<?xml version="1.0"?>
+<rpc-reply message-id="urn:uuid:61428225-a5ba-4eae-8b93-d51666dc8016" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+ <ok/>
+</rpc-reply>
+<?xml version="1.0"?>
+<rpc-reply message-id="urn:uuid:63c1c2de-e3c6-4f36-bfe7-f5e5bcd88949" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+ <ok/>
+</rpc-reply>
+172.16.7.112-config-module-netconf-yang-20210308.xml<?xml version="1.0"?>
+<rpc-reply message-id="urn:uuid:6282286a-eda1-4933-93d2-d98f89560322" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+ <ok/>
+</rpc-reply>
+<?xml version="1.0"?>
+<rpc-reply message-id="urn:uuid:1325f831-fdbd-4bfb-bb00-4981df99af72" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+ <ok/>
+</rpc-reply>
+172.16.7.112-config-module-bgp-20210308.xml<?xml version="1.0"?>
+<rpc-reply message-id="urn:uuid:014590ff-e672-428f-8ce8-a2a5edab34c6" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+ <ok/>
+</rpc-reply>
+<?xml version="1.0"?>
+<rpc-reply message-id="urn:uuid:6a9a8e14-171a-49c7-ba89-4e96214e0889" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+ <ok/>
+</rpc-reply>
+172.16.7.112-config-module-mpls-ldp-20210308.xml<?xml version="1.0"?>
+<rpc-reply message-id="urn:uuid:24dd083e-d0db-4f27-8626-80bf7fed4796" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+ <ok/>
+</rpc-reply>
+<?xml version="1.0"?>
+<rpc-reply message-id="urn:uuid:33bf77e9-703f-4cce-a1ff-b136d8c9b2b7" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+ <ok/>
+</rpc-reply>
+172.16.7.112-config-module-call-home-20210308.xml<?xml version="1.0"?>
+<rpc-reply message-id="urn:uuid:eeb6ef61-df0e-4cb0-8595-37c408ccc76d" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+ <ok/>
+</rpc-reply>
+<?xml version="1.0"?>
+<rpc-reply message-id="urn:uuid:a7c81779-2167-4364-a13d-a9d258dc81b8" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+ <ok/>
+</rpc-reply>
+172.16.7.112-config-module-aaa-20210308.xml<?xml version="1.0"?>
+<rpc-reply message-id="urn:uuid:f94ccb89-94d9-4b40-bb6b-1e47da03bb13" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+ <ok/>
+</rpc-reply>
+<?xml version="1.0"?>
+<rpc-reply message-id="urn:uuid:575d36b3-3338-4660-b0c0-72792c267eee" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+ <ok/>
+</rpc-reply>
+172.16.7.112-config-module-keychains-20210308.xml<?xml version="1.0"?>
+<rpc-reply message-id="urn:uuid:a931e904-c9dc-4ab0-a963-f5be9e932a2f" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+ <ok/>
+</rpc-reply>
+<?xml version="1.0"?>
+<rpc-reply message-id="urn:uuid:8aa52881-f896-4ff4-9e24-102ba589b6a9" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+ <ok/>
+</rpc-reply>
+172.16.7.112-config-module-interface-configurations-20210308.xml<?xml version="1.0"?>
+<rpc-reply message-id="urn:uuid:df340cba-119f-43ff-a9d5-b4e3676299b3" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+ <ok/>
+</rpc-reply>
+<?xml version="1.0"?>
+<rpc-reply message-id="urn:uuid:4575ab55-cf6c-447b-ba72-5d153a7d0e40" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+ <ok/>
+</rpc-reply>
+172.16.7.112-config-module-routing-policy-20210308.xml<?xml version="1.0"?>
+<rpc-reply message-id="urn:uuid:3317f997-ab6c-4ae5-9226-4d18df7bd7d0" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+ <ok/>
+</rpc-reply>
+<?xml version="1.0"?>
+<rpc-reply message-id="urn:uuid:86835295-76ea-4f7e-8ef2-ea80953f30d1" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+ <ok/>
+</rpc-reply>
+172.16.7.112-config-module-vrfs-20210308.xml<?xml version="1.0"?>
+<rpc-reply message-id="urn:uuid:343c9a32-5353-4f23-98a0-adcea375d69a" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+ <ok/>
+</rpc-reply>
+<?xml version="1.0"?>
+<rpc-reply message-id="urn:uuid:9b2c7901-ca9b-467c-a2e7-37706f78064b" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+ <ok/>
+</rpc-reply>
+172.16.7.112-config-module-syslog-20210308.xml<?xml version="1.0"?>
+<rpc-reply message-id="urn:uuid:b9744301-fe86-4e73-a3d7-50cdc387891b" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+ <ok/>
+</rpc-reply>
+<?xml version="1.0"?>
+<rpc-reply message-id="urn:uuid:dc25e47f-1edb-463c-af60-22e07467c802" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+ <ok/>
+</rpc-reply>

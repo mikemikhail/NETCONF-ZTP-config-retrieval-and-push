@@ -1245,6 +1245,50 @@
       </vrfipv4>
      </address-family>
     </vrf>
+    <vrf>
+     <vrf-name>MPG</vrf-name>
+     <address-family>
+      <vrfipv4>
+       <vrf-unicast>
+        <vrf-prefixes>
+         <vrf-prefix>
+          <prefix>172.31.1.0</prefix>
+          <prefix-length>24</prefix-length>
+          <vrf-route>
+           <vrf-next-hop-table>
+            <vrf-next-hop-interface-name>
+             <interface-name>Null0</interface-name>
+            </vrf-next-hop-interface-name>
+           </vrf-next-hop-table>
+          </vrf-route>
+         </vrf-prefix>
+         <vrf-prefix>
+          <prefix>172.31.2.0</prefix>
+          <prefix-length>24</prefix-length>
+          <vrf-route>
+           <vrf-next-hop-table>
+            <vrf-next-hop-interface-name>
+             <interface-name>Null0</interface-name>
+            </vrf-next-hop-interface-name>
+           </vrf-next-hop-table>
+          </vrf-route>
+         </vrf-prefix>
+         <vrf-prefix>
+          <prefix>172.31.3.0</prefix>
+          <prefix-length>24</prefix-length>
+          <vrf-route>
+           <vrf-next-hop-table>
+            <vrf-next-hop-interface-name>
+             <interface-name>Null0</interface-name>
+            </vrf-next-hop-interface-name>
+           </vrf-next-hop-table>
+          </vrf-route>
+         </vrf-prefix>
+        </vrf-prefixes>
+       </vrf-unicast>
+      </vrfipv4>
+     </address-family>
+    </vrf>
    </vrfs>
   </router-static>
 </config
